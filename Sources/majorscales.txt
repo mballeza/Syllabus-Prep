@@ -1,0 +1,3 @@
+A   B   C#  D   E   F#  G#  A
+C   D   E   F   G   A   B   C
+Eb  F   G   Ab  Bb  C   D   Eb

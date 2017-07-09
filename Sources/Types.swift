@@ -29,7 +29,7 @@ class Types {
 
 #if AUDIO
 	func playAudio() -> Int32 {
-		return shell("mpg123", "Resources/test.mp3")
+		return shell("mpg123", "-q", "Resources/test.mp3")
 	}
 
 	private func shell(_ args: String...) -> Int32 {

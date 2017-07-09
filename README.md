@@ -4,39 +4,37 @@ Syllabus Prep is way for students of the Music Teachers National Association (MT
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
 This demo was developed with Swift 3.1.1 Ubuntu 16.04 Release version. This can be downloaded at https://swift.org/download, and the installation instructions can be found at https://swift.org/download/#using-downloads.
+
+To use the audio version of the make target, mpg123 is needed. To get use:
+
+```
+sudo apt install mpg321
+```
 
 ### Installing
 
-To build an executable, you can do either of two things:
+To build an executable, you can do the following:
 
-#### 1. Makefile
+#### Makefile
+
+To make the default target
 
 ```
 make
 ```
 
-To remove executable
+To make the audio target (mpg123 needed)
+
+```
+make audio
+```
+
+To remove executables
 
 ```
 make clean
 ```
-
-#### 2. Swift Build
-
-```
-swift build
-```
-
-The executable can be found in .build/debug/
-
-To execute
-
-```
-.build/debug/Syllabus-Prep
-```
-
 
 #### The following is the rest of the template from https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
 

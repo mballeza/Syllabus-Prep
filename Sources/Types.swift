@@ -9,8 +9,8 @@ class Types {
 		stringType = "default"
 	}
 
-	internal func readEntry(name : String, index : Int) {
-		if let path = Bundle.main.path(forResource: filename!, ofType: "txt") {
+	func readEntry(index : Int) {
+		if let path = Bundle.main.path(forResource: filename!, ofType: "txt", inDirectory: "Resources") {
 			do {
 				let data = try String(contentsOfFile: path, encoding: .utf8)
 				let entry = data.components(separatedBy: .newlines)
@@ -23,11 +23,24 @@ class Types {
 		}
 	}
 
-	internal func printScale(index: Int) {}
-	func printFileName() {}
 	func isCorrectType(guess: String) -> Bool {
 		return guess == stringType
 	}
+
+#if AUDIO
+	func playAudio() -> Int32 {
+		return shell("mpg123", "Resources/test.mp3")
+	}
+
+	private func shell(_ args: String...) -> Int32 {
+		let task = Process()
+		task.launchPath = "/usr/bin/env"
+		task.arguments = args
+		task.launch()
+		task.waitUntilExit()
+		return task.terminationStatus
+ 	}
+#endif
 }
 
 class MajorScale : Types {
@@ -35,14 +48,6 @@ class MajorScale : Types {
 		super.init()
 		filename = "majorscales"
 		stringType = "major"
-	}
-
-	override func printScale(index : Int) {
-		readEntry(name: filename!, index: index)
-	}
-
-	override func printFileName() {
-		print(filename! + ".txt")
 	}
 }
 
@@ -52,12 +57,20 @@ class MinorScale : Types {
 		filename = "minorscales"
 		stringType = "minor"
 	}
+}
 
-	override func printScale(index : Int) {
-		readEntry(name: filename!, index: index)
+class HarmonicMinorScale : Types {
+	override init() {
+		super.init()
+		filename = "harmonicminorscales"
+		stringType = "harmonic minor"
 	}
+}
 
-	override func printFileName() {
-		print(filename! + ".txt")
+class MelodicMinorScale : Types {
+	override init() {
+		super.init()
+		filename = "melodicminorscales"
+		stringType = "melodic minor"
 	}
 }

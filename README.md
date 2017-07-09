@@ -2,6 +2,10 @@
 
 Syllabus Prep is way for students of the Music Teachers National Association (MTNA) to study and prepare for their syllabus tests. Syllabus Prep will cover music theory for each syllabus level including scales, arpeggios, chord progressions, and ear training. This project is intended for development in the Swift language, and will eventually be released to the Apple Store.
 
+### Demo
+
+See the "demo" branch for a Swift command-line simulation of concepts intended for the app release.
+
 #### The following is the rest of the template from https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
 
 ## Getting Started

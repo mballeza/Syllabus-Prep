@@ -2,37 +2,47 @@
 
 Syllabus Prep is way for students of the Music Teachers National Association (MTNA) to study and prepare for their syllabus tests. Syllabus Prep will cover music theory for each syllabus level including scales, arpeggios, chord progressions, and ear training. This project is intended for development in the Swift language, and will eventually be released to the Apple Store.
 
+### Prerequisites
+
+What things you need to install the software and how to install them
+This demo was developed with Swift 3.1.1 Ubuntu 16.04 Release version. This can be downloaded at https://swift.org/download, and the installation instructions can be found at https://swift.org/download/#using-downloads.
+
+### Installing
+
+To build an executable, you can do either of two things:
+
+#### 1. Makefile
+
+```
+make
+```
+
+To remove executable
+
+```
+make clean
+```
+
+#### 2. Swift Build
+
+```
+swift build
+```
+
+The executable can be found in .build/debug/
+
+To execute
+
+```
+.build/debug/Syllabus-Prep
+```
+
+
 #### The following is the rest of the template from https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 

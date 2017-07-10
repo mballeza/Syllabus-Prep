@@ -10,7 +10,7 @@ class Types {
 	}
 
 	func readEntry(index : Int) {
-		if let path = Bundle.main.path(forResource: filename!, ofType: "txt", inDirectory: "Resources") {
+		if let path = Bundle.main.path(forResource: filename!, ofType: "txt") {
 			do {
 				let data = try String(contentsOfFile: path, encoding: .utf8)
 				let entry = data.components(separatedBy: .newlines)

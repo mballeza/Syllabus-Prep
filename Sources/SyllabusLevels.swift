@@ -1,6 +1,8 @@
 import Foundation
 import Glibc
 
+let NUM_FILE_ENTRY = 3
+
 class SyllabusLevels {
 	var TypeLevel : [Types]
 
@@ -22,12 +24,11 @@ class SyllabusLevels {
 	}
 
 	func giveTestQuestion() {
-		let NUM_FILE_ENTRY = 3
-		let NUM_TYPES = TypeLevel.count
+		let numTypes = TypeLevel.count
 
 		srandom(UInt32(time(nil)))
 
-		let randnum = random() % NUM_TYPES
+		let randnum = random() % numTypes 
 		let randidx = random() % NUM_FILE_ENTRY
 
 		let foo = TypeLevel[randnum]

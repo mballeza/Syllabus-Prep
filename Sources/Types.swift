@@ -2,11 +2,11 @@ import Foundation
 
 class Types {
 	internal var filename: String?
-	internal var stringType: String?
+	var stringType: String?
 
 	init() {
-		filename = "default"
-		stringType = "default"
+		filename = ""
+		stringType = ""
 	}
 
 	func readEntry(index : Int) {
@@ -43,34 +43,42 @@ class Types {
 #endif
 }
 
-class MajorScale : Types {
+class Scale : Types {
 	override init() {
 		super.init()
-		filename = "majorscales"
-		stringType = "major"
+		filename = "scales"
+		stringType = "scale"
 	}
 }
 
-class MinorScale : Types {
+class MajorScale : Scale {
 	override init() {
 		super.init()
-		filename = "minorscales"
-		stringType = "minor"
+		filename = "major" + super.filename!
+		stringType = "major " + super.stringType!
 	}
 }
 
-class HarmonicMinorScale : Types {
+class MinorScale : Scale{
 	override init() {
 		super.init()
-		filename = "harmonicminorscales"
-		stringType = "harmonic minor"
+		filename = "minor" + super.filename!
+		stringType = "minor " + super.stringType!
 	}
 }
 
-class MelodicMinorScale : Types {
+class HarmonicMinorScale : Scale {
 	override init() {
 		super.init()
-		filename = "melodicminorscales"
-		stringType = "melodic minor"
+		filename = "harmonicminor" + super.filename!
+		stringType = "harmonic minor " + super.stringType!
+	}
+}
+
+class MelodicMinorScale : Scale {
+	override init() {
+		super.init()
+		filename = "melodicminor" + super.filename!
+		stringType = "melodic minor " + super.stringType!
 	}
 }

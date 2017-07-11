@@ -2,14 +2,15 @@ import Foundation
 import Glibc
 
 let NUM_FILE_ENTRY = 3
+let NUM_KEYS = 1
 
 class SyllabusLevels {
-	var TypeLevel : [Types]
+	var TypeLevel : [[Types]]
 
 	init(level: Int) {
 		switch level {
-			case 1: TypeLevel = [MajorScale(), MinorScale()]
-			case 2: TypeLevel = [MajorScale(), MinorScale(), HarmonicMinorScale(), MelodicMinorScale()]
+			case 1: TypeLevel = [[MajorScale(), MinorScale()], [KeyOfA()]]
+			case 2: TypeLevel = [[MajorScale(), MinorScale(), HarmonicMinorScale(), MelodicMinorScale()], [KeyOfA()]]
 			default: TypeLevel = []
 		}
 	}
@@ -31,13 +32,14 @@ class SyllabusLevels {
 		let randnum = random() % numTypes 
 		let randidx = random() % NUM_FILE_ENTRY
 
-		let foo = TypeLevel[randnum]
-		foo.readEntry(index: randidx)
+		let CurrentLevel = TypeLevel[0]
+		let CurrentKey = TypeLevel[1]
+		CurrentLevel[randnum].readEntry(index: randidx)
 
 		#if AUDIO
 		print("Playing test mp3 file, please wait 16 seconds")
 		sleep(1)
-		let rc = foo.playAudio()
+		let rc = CurrentLevel.playAudio()
 		if rc == 0 {
 			print("Playback successful")
 		} else {
@@ -47,7 +49,7 @@ class SyllabusLevels {
 
 		print("Enter the scale type")
 		let response = readLine()
-		if foo.isCorrectType(guess: response!.lowercased()) {
+		if CurrentLevel[randnum].isCorrectType(guess: response!.lowercased()) {
 			print("Correct!")
 		} else {
 			print("Incorrect!")

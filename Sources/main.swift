@@ -10,3 +10,11 @@ if !StudySession.assertLevel() {
 }
 
 StudySession.giveTestQuestion()
+
+let foo = EarTraining(level: userLevel!)
+
+if !foo.assertLevel() {
+	exit(1)
+}
+
+foo.createType()

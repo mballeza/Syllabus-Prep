@@ -9,6 +9,10 @@ class Types {
 		stringType = ""
 	}
 
+	init(SyllabusSet: [[String]]) {
+		
+	}
+
 	func readEntry(index : Int) {
 		if let path = Bundle.main.path(forResource: filename!, ofType: "txt") {
 			do {
@@ -48,6 +52,22 @@ class Scale : Types {
 		super.init()
 		filename = "scales"
 		stringType = "scale"
+	}
+}
+
+class Interval: Types {
+	override init() {
+		super.init()
+		filename = "intervals"
+		stringType = "interval"
+	}
+}
+
+class Triad: Types {
+	override init() {
+		super.init()
+		filename = "triads"
+		stringType = "triad"
 	}
 }
 

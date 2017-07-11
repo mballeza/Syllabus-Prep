@@ -5,28 +5,33 @@ import Glibc
 import Darwin
 #endif
 
+struct INTERVAL_LEVEL_SETS {
+	let ONE = [["major", "minor"], ["interval"]]
+	let TWO = [["major", "minor"], ["interval", "triad"]] 
+	let THREE = [["major", "minor", "diminished"], ["interval", "triad"]]
+	let FOUR = [["major", "minor", "diminished"], ["interval", "triad", "seventh"]]
+} 
+
+let INTERVAL_LEVELS = INTERVAL_LEVEL_SETS()
 let NUM_FILE_ENTRY = 3
-let NUM_KEYS = 1
 
 class SyllabusLevels {
-	var TypeLevel : [[Types]]
+	var TypeLevel : Types
 	var playSet : [[String]]
+	let MAX_LEVEL = 10
+	let MIN_LEVEL = 1
 
 	init() { 
-		TypeLevel = [] 
 		playSet = []
+		TypeLevel = Types()
 	}
 	init(level: Int) {
 		playSet = []
-		switch level {
-			case 1: TypeLevel = [[MajorScale(), MinorScale()], [KeyOfA()]]
-			case 2: TypeLevel = [[MajorScale(), MinorScale(), HarmonicMinorScale(), MelodicMinorScale()], [KeyOfA()]]
-			default: TypeLevel = []
-		}
+		TypeLevel = Types()
 	}
 
-	func assertLevel() -> Bool {
-		let isValid = TypeLevel.count > 0
+	func assertLevel(level: Int) -> Bool {
+		let isValid = level >= MIN_LEVEL && level <= MAX_LEVEL
 
 		if !isValid {
 			print("Invalid level")
@@ -35,6 +40,7 @@ class SyllabusLevels {
 	}
 
 	func giveTestQuestion() {
+/*
 		let numTypes = TypeLevel.count
 
 		srandom(UInt32(time(nil)))
@@ -62,50 +68,81 @@ class SyllabusLevels {
 		}
 		#endif
 
-		print("Enter the scale type")
-		let response = readLine()
-		if CurrentLevel[randnum].isCorrectType(guess: response!.lowercased()) {
-			print("Correct!")
-		} else {
-			print("Incorrect!")
-		}
+		queryType()
+*/
+	}
+
+	func queryType() {
+		print("DEFAULT: should not display")
+	}
+
+	func setRandSeed() {
+		srandom(UInt32(time(nil)))
+	}
+
+	func getRandIndex(mod: Int) -> Int {
+#if os(Linux)
+		return random() % mod
+#else
+		return Int(arc4random()) % mod
+#endif
 	}
 }
 
 class EarTraining: SyllabusLevels {
+	var stringType : String?
+
 	override init(level: Int) {
 		super.init()
 		switch level {
-			case 1:
+			case 1: playSet = INTERVAL_LEVELS.ONE
 				break
 
-			case 2: playSet = [["major", "minor"], ["third", "triad"]]
+			case 2: playSet = INTERVAL_LEVELS.TWO
+				break
+
+			case 3: playSet = INTERVAL_LEVELS.THREE
+				break
+
+			case 4: playSet = INTERVAL_LEVELS.FOUR
 				break
 
 			default: playSet = []
 				break
 		}
-	}
-
-	override func assertLevel() -> Bool {
-		return playSet.count > 0
+		createType()
 	}
 
 	func createType() {
-		var filename : String
-		let firstCount = 2
-		let secondCount = 2
+		let firstCount = playSet[0].count
+		let secondCount = playSet[1].count
 
-		srandom(UInt32(time(nil)))
+		setRandSeed()
 
-#if os(Linux)
-		let randnum0 = random() % firstCount
-		let randnum1 = random() % secondCount
-#else
-		let randnum0 = Int(arc4random()) % firstCount
-		let randnum1 = Int(arc4random()) % secondCount 
-#endif
+		var randnum0 = getRandIndex(mod: firstCount)
+		var randnum1 = getRandIndex(mod: secondCount)
 
-		filename = playSet[0][randnum0] + playSet[1][randnum1]
+		while playSet[0][randnum0] == "diminished" && playSet[1][randnum1] == "interval" {
+			randnum0 = getRandIndex(mod: firstCount)
+			randnum1 = getRandIndex(mod: secondCount)
+		}
+
+		TypeLevel = Types(firstname: playSet[0][randnum0], secondname: playSet[1][randnum1])
+		stringType = playSet[1][randnum1]
+	}
+
+	override func giveTestQuestion() {
+		TypeLevel.readEntry(index: getRandIndex(mod: NUM_FILE_ENTRY))
+		queryType()
+	}
+
+	override func queryType() {
+		print("Enter the " + stringType! + " type")
+		let response = readLine()
+		if TypeLevel.isCorrectType(guess: response!.lowercased()) {
+			print("Correct!")
+		} else {
+			print("Incorrect!")
+		}
 	}
 }

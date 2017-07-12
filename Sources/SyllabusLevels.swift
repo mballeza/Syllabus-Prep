@@ -5,31 +5,23 @@ import Glibc
 import Darwin
 #endif
 
-struct INTERVAL_LEVEL_SETS {
-	let ONE = [["major", "minor"], ["interval"]]
-	let TWO = [["major", "minor"], ["interval", "triad"]] 
-	let THREE = [["major", "minor", "diminished"], ["interval", "triad"]]
-	let FOUR = [["major", "minor", "diminished"], ["interval", "triad", "seventh"]]
-} 
-
-let INTERVAL_LEVELS = INTERVAL_LEVEL_SETS()
-let NUM_FILE_ENTRY = 3
+let EAR_TRAINING_LEVELS = EAR_TRAINING_LEVEL_SETS()
+let NUM_EAR_TRAINING_SETS = 3 		// Only 3: intervals, chords, scales.
+let NUM_FILE_ENTRY = 3				// Number of lines in a file. Only 3 for now for demo purposes.
+let MAX_LEVEL = 10					// Max syllabus level
+let MIN_LEVEL = 1					// Min syllabus level
 
 class SyllabusLevels {
-	var TypeLevel : Types
-	var playSet : [[String]]
-	let MAX_LEVEL = 10
-	let MIN_LEVEL = 1
+	var TypeLevel : Types			// The type for the current study session
+	var playSet : EAR_TRAINING_SETS	// This is for ear training only, contains the requirement sets 
+									//   for each level
 
-	init() { 
-		playSet = []
+	init() {
 		TypeLevel = Types()
-	}
-	init(level: Int) {
-		playSet = []
-		TypeLevel = Types()
+		playSet = EAR_TRAINING_SETS()
 	}
 
+	// Asserts the level is between 1 and 10
 	func assertLevel(level: Int) -> Bool {
 		let isValid = level >= MIN_LEVEL && level <= MAX_LEVEL
 
@@ -90,54 +82,88 @@ class SyllabusLevels {
 }
 
 class EarTraining: SyllabusLevels {
-	var stringType : String?
+	var stringType : String?	// Hack, used in queryType. "interval", "chord", or "scale"
 
-	override init(level: Int) {
+	init(level: Int) {
 		super.init()
+
+		// Syllabus levels
 		switch level {
-			case 1: playSet = INTERVAL_LEVELS.ONE
+			case 1: playSet = EAR_TRAINING_LEVELS.ONE
 				break
 
-			case 2: playSet = INTERVAL_LEVELS.TWO
+			case 2: playSet = EAR_TRAINING_LEVELS.TWO
 				break
 
-			case 3: playSet = INTERVAL_LEVELS.THREE
+			case 3: playSet = EAR_TRAINING_LEVELS.THREE
 				break
 
-			case 4: playSet = INTERVAL_LEVELS.FOUR
+			case 4: playSet = EAR_TRAINING_LEVELS.FOUR
 				break
 
-			default: playSet = []
+			// TODO: case 5-10
+
+			default: playSet = EAR_TRAINING_SETS()
 				break
 		}
-		createType()
 	}
 
-	func createType() {
-		let firstCount = playSet[0].count
-		let secondCount = playSet[1].count
+	// Generates random indexes to access the Type set. Returns a Types object.
+	func createType(set: EAR_TRAINING_TYPE) -> Types {
+		let firstCount = set.mode.count
+		let secondCount = set.type.count
+		let firstname : String
+		let secondname : String
+
+		// Hack. If empty mode or Types class.
+		if firstCount == 0 {
+			firstname = ""
+		} else {
+			firstname = set.mode[getRandIndex(mod: firstCount)]
+		}
+
+		// If empty type.
+		if secondCount == 0 {
+			secondname = ""
+		} else {
+			secondname = set.type[getRandIndex(mod: secondCount)]
+		}
+
+		return Types(firstname: firstname, secondname: secondname) 
+	}
+
+	// Retrieves a randomly generated Types class.
+	override func giveTestQuestion() {
+		var randSetNum : Int
 
 		setRandSeed()
 
-		var randnum0 = getRandIndex(mod: firstCount)
-		var randnum1 = getRandIndex(mod: secondCount)
+		repeat {
+			randSetNum = getRandIndex(mod : NUM_EAR_TRAINING_SETS)
 
-		while playSet[0][randnum0] == "diminished" && playSet[1][randnum1] == "interval" {
-			randnum0 = getRandIndex(mod: firstCount)
-			randnum1 = getRandIndex(mod: secondCount)
+			switch randSetNum {
+				case 0: TypeLevel = createType(set: playSet.INTERVALS)
+						stringType = "interval"
+						break
+				case 1: TypeLevel = createType(set: playSet.CHORDS)
+						stringType = "chord"
+						break
+				case 2: TypeLevel = createType(set: playSet.SCALES)
+						stringType = "scale"
+						break
+				default: TypeLevel = Types()
+						break
+			}
+		} while TypeLevel.isEmpty() 
+
+		if TypeLevel.readEntry(index: getRandIndex(mod: NUM_FILE_ENTRY)) {
+			queryType()
 		}
-
-		TypeLevel = Types(firstname: playSet[0][randnum0], secondname: playSet[1][randnum1])
-		stringType = playSet[1][randnum1]
 	}
 
-	override func giveTestQuestion() {
-		TypeLevel.readEntry(index: getRandIndex(mod: NUM_FILE_ENTRY))
-		queryType()
-	}
-
+	// Asks the user to enter the mode of the interval/chord/scale given.
 	override func queryType() {
-		print("Enter the " + stringType! + " type")
+		print("Enter the " + stringType! + " mode")
 		let response = readLine()
 		if TypeLevel.isCorrectType(guess: response!.lowercased()) {
 			print("Correct!")

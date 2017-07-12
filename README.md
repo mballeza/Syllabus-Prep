@@ -24,6 +24,7 @@ To make the default target
 make
 ```
 
+#### Removed audio target from build, 7/11/2017
 To make the audio target (mpg123 needed)
 
 ```

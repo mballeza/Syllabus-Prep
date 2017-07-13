@@ -90,44 +90,55 @@ class EarTraining: SyllabusLevels {
 		// Syllabus levels
 		switch level {
 			case 1: playSet = EAR_TRAINING_LEVELS.ONE
-				break
-
 			case 2: playSet = EAR_TRAINING_LEVELS.TWO
-				break
-
 			case 3: playSet = EAR_TRAINING_LEVELS.THREE
-				break
-
 			case 4: playSet = EAR_TRAINING_LEVELS.FOUR
-				break
-
-			// TODO: case 5-10
+			case 5: playSet = EAR_TRAINING_LEVELS.FIVE
+			case 6: playSet = EAR_TRAINING_LEVELS.SIX
+			case 7: playSet = EAR_TRAINING_LEVELS.SEVEN
+			case 8: playSet = EAR_TRAINING_LEVELS.EIGHT
+			case 9: playSet = EAR_TRAINING_LEVELS.NINE
+			case 10: playSet = EAR_TRAINING_LEVELS.TEN
 
 			default: playSet = EAR_TRAINING_SETS()
-				break
 		}
+
+		setRandSeed()
 	}
 
 	// Generates random indexes to access the Type set. Returns a Types object.
-	func createType(set: EAR_TRAINING_TYPE) -> Types {
+	func createType(set: EAR_TRAINING_TYPE, setType: String) -> Types {
 		let firstCount = set.mode.count
 		let secondCount = set.type.count
-		let firstname : String
-		let secondname : String
+		var firstname : String
+		var secondname : String
+		var isValid = 1
 
-		// Hack. If empty mode or Types class.
-		if firstCount == 0 {
-			firstname = ""
-		} else {
-			firstname = set.mode[getRandIndex(mod: firstCount)]
-		}
+		repeat {
+			// Hack. If empty mode or Types class.
+			if firstCount == 0 {
+				firstname = ""
+			} else {
+				firstname = set.mode[getRandIndex(mod: firstCount)]
+			}
 
-		// If empty type.
-		if secondCount == 0 {
-			secondname = ""
-		} else {
-			secondname = set.type[getRandIndex(mod: secondCount)]
-		}
+			// If empty type.
+			if secondCount == 0 {
+				secondname = ""
+			} else {
+				secondname = set.type[getRandIndex(mod: secondCount)]
+			}
+
+			// Hack. Checks if interval.
+			if setType == "interval" {
+				isValid = set.isValidInterval(mode: firstname, type: secondname)
+
+				// If interval and is tritone or octave type.
+				if isValid == -1 {
+					secondname = ""
+				}
+			}
+		} while (setType == "interval" && isValid == 0)
 
 		return Types(firstname: firstname, secondname: secondname) 
 	}
@@ -136,23 +147,21 @@ class EarTraining: SyllabusLevels {
 	override func giveTestQuestion() {
 		var randSetNum : Int
 
-		setRandSeed()
-
 		repeat {
 			randSetNum = getRandIndex(mod : NUM_EAR_TRAINING_SETS)
 
 			switch randSetNum {
-				case 0: TypeLevel = createType(set: playSet.INTERVALS)
+				case 0: 
 						stringType = "interval"
-						break
-				case 1: TypeLevel = createType(set: playSet.CHORDS)
+						TypeLevel = createType(set: playSet.INTERVALS, setType: stringType!)
+				case 1: 
 						stringType = "chord"
-						break
-				case 2: TypeLevel = createType(set: playSet.SCALES)
+						TypeLevel = createType(set: playSet.CHORDS, setType: stringType!)
+				case 2: 
 						stringType = "scale"
-						break
-				default: TypeLevel = Types()
-						break
+						TypeLevel = createType(set: playSet.SCALES, setType: stringType!)
+				default: 
+						TypeLevel = Types()
 			}
 		} while TypeLevel.isEmpty() 
 

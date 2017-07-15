@@ -1,3 +1,15 @@
+struct EAR_TRAINING_TYPE_NAMES {
+	let interval = "interval"
+	let chord = "chord"
+	let scale = "scale"
+}
+
+struct EAR_TRAINING_TYPE_VALUES{
+	let interval = 0
+	let chord = 1
+	let scale = 2
+}
+
 struct INTERVAL_MODES {
 	let major = "major"
 	let minor = "minor"
@@ -135,18 +147,28 @@ struct EAR_TRAINING_LEVEL_SETS {
 // This stores String arrays of the modes and types in a particular ear training type (interval,
 //   chord, or scale). The indexes of the two arrays are accessed at random by EarTraining for
 //   a test question.
-struct EAR_TRAINING_TYPE {
+class EAR_TRAINING_TYPE {
 	var mode : [String] // Ex: "major", "minor"
 	var type : [String]	// Ex: "triad", "seventh"
 
 	init() {
-		mode = []
-		type = []
+		self.mode = []
+		self.type = []
 	}
 
 	init(mode: [String], type: [String]) {
 		self.mode = mode
 		self.type = type
+	}
+
+	// Returns true if mode is empty.
+	func isEmpty() -> Bool {
+		return mode.count == 0
+	}
+
+	// Returns true if type is a scale. This means mode is nonempty and type is empty.
+	func isScale() -> Bool {
+		return mode.count > 0 && type.count == 0
 	}
 
 	func isValidInterval(mode : String, type: String) -> Int{
@@ -175,21 +197,33 @@ struct EAR_TRAINING_TYPE {
 }
 
 // This stores all three ear training types.
-struct EAR_TRAINING_SETS {
+class EAR_TRAINING_SETS {
 	let INTERVALS : EAR_TRAINING_TYPE
 	let CHORDS : EAR_TRAINING_TYPE 
 	let SCALES : EAR_TRAINING_TYPE
 
 	init() {
-		INTERVALS = EAR_TRAINING_TYPE()
-		CHORDS = EAR_TRAINING_TYPE()
-		SCALES = EAR_TRAINING_TYPE()
+		self.INTERVALS = EAR_TRAINING_TYPE()
+		self.CHORDS = EAR_TRAINING_TYPE()
+		self.SCALES = EAR_TRAINING_TYPE()
 	}
 
 	init(intervalmode : [String], interval : [String], chordmode : [String], chord : [String], scalemode : [String]) {
-		INTERVALS = EAR_TRAINING_TYPE(mode: intervalmode, type: interval)
-		CHORDS = EAR_TRAINING_TYPE(mode: chordmode, type: chord)
-		SCALES = EAR_TRAINING_TYPE(mode: scalemode, type: [])
+		self.INTERVALS = EAR_TRAINING_TYPE(mode: intervalmode, type: interval)
+		self.CHORDS = EAR_TRAINING_TYPE(mode: chordmode, type: chord)
+		self.SCALES = EAR_TRAINING_TYPE(mode: scalemode, type: [])
+	}
+
+	func displaySetChoices() {
+		if !self.INTERVALS.isEmpty() {
+			print(String(EAR_TRAINING_TYPE_VALUES().interval) + ": " + EAR_TRAINING_TYPE_NAMES().interval)
+		}
+		if !self.CHORDS.isEmpty() {
+			print(String(EAR_TRAINING_TYPE_VALUES().chord) + ": " + EAR_TRAINING_TYPE_NAMES().chord)
+		}
+		if !self.SCALES.isEmpty() {
+			print(String(EAR_TRAINING_TYPE_VALUES().scale) + ": " + EAR_TRAINING_TYPE_NAMES().scale)
+		}
 	}
 }
 

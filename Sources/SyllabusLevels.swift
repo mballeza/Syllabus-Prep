@@ -5,6 +5,8 @@ import Glibc
 import Darwin
 #endif
 
+let ETT_NAMES = EAR_TRAINING_TYPE_NAMES()
+let ETT_VALUES = EAR_TRAINING_TYPE_VALUES()
 let EAR_TRAINING_LEVELS = EAR_TRAINING_LEVEL_SETS()
 let NUM_EAR_TRAINING_SETS = 3 		// Only 3: intervals, chords, scales.
 let NUM_FILE_ENTRY = 3				// Number of lines in a file. Only 3 for now for demo purposes.
@@ -12,13 +14,13 @@ let MAX_LEVEL = 10					// Max syllabus level
 let MIN_LEVEL = 1					// Min syllabus level
 
 class SyllabusLevels {
-	var TypeLevel : Types			// The type for the current study session
-	var playSet : EAR_TRAINING_SETS	// This is for ear training only, contains the requirement sets 
+	fileprivate var TypeLevel : Types			// The type for the current study session
+	fileprivate var playSet : EAR_TRAINING_SETS	// This is for ear training only, contains the requirement sets 
 									//   for each level
 
 	init() {
-		TypeLevel = Types()
-		playSet = EAR_TRAINING_SETS()
+		self.TypeLevel = Types()
+		self.playSet = EAR_TRAINING_SETS()
 	}
 
 	// Asserts the level is between 1 and 10
@@ -64,106 +66,167 @@ class SyllabusLevels {
 */
 	}
 
-	func queryType() {
+	func giveTestQuestion(choice: Int) {
+	}
+
+	fileprivate func queryType() {
 		print("DEFAULT: should not display")
 	}
 
-	func setRandSeed() {
+	fileprivate func setRandSeed() {
 		srandom(UInt32(time(nil)))
 	}
 
-	func getRandIndex(mod: Int) -> Int {
+	fileprivate func getRandIndex(mod: Int) -> Int {
 #if os(Linux)
 		return random() % mod
 #else
 		return Int(arc4random()) % mod
 #endif
 	}
+
+	func displayChoices() {
+	}
 }
 
 class EarTraining: SyllabusLevels {
-	var stringType : String?	// Hack, used in queryType. "interval", "chord", or "scale"
+	fileprivate var stringType : String?	// Hack, used in queryType. ETT_NAMES.interval, ETT_NAMES.chord, or ETT_NAMES.scale
 
 	init(level: Int) {
 		super.init()
 
 		// Syllabus levels
 		switch level {
-			case 1: playSet = EAR_TRAINING_LEVELS.ONE
-			case 2: playSet = EAR_TRAINING_LEVELS.TWO
-			case 3: playSet = EAR_TRAINING_LEVELS.THREE
-			case 4: playSet = EAR_TRAINING_LEVELS.FOUR
-			case 5: playSet = EAR_TRAINING_LEVELS.FIVE
-			case 6: playSet = EAR_TRAINING_LEVELS.SIX
-			case 7: playSet = EAR_TRAINING_LEVELS.SEVEN
-			case 8: playSet = EAR_TRAINING_LEVELS.EIGHT
-			case 9: playSet = EAR_TRAINING_LEVELS.NINE
-			case 10: playSet = EAR_TRAINING_LEVELS.TEN
+			case 1: self.playSet = EAR_TRAINING_LEVELS.ONE
+			case 2: self.playSet = EAR_TRAINING_LEVELS.TWO
+			case 3: self.playSet = EAR_TRAINING_LEVELS.THREE
+			case 4: self.playSet = EAR_TRAINING_LEVELS.FOUR
+			case 5: self.playSet = EAR_TRAINING_LEVELS.FIVE
+			case 6: self.playSet = EAR_TRAINING_LEVELS.SIX
+			case 7: self.playSet = EAR_TRAINING_LEVELS.SEVEN
+			case 8: self.playSet = EAR_TRAINING_LEVELS.EIGHT
+			case 9: self.playSet = EAR_TRAINING_LEVELS.NINE
+			case 10: self.playSet = EAR_TRAINING_LEVELS.TEN
 
-			default: playSet = EAR_TRAINING_SETS()
+			default: self.playSet = EAR_TRAINING_SETS()
 		}
 
 		setRandSeed()
 	}
 
 	// Generates random indexes to access the Type set. Returns a Types object.
-	func createType(set: EAR_TRAINING_TYPE, setType: String) -> Types {
-		let firstCount = set.mode.count
-		let secondCount = set.type.count
-		var firstname : String
-		var secondname : String
+	fileprivate func createType(set: EAR_TRAINING_TYPE, setType: String) -> Types {
+		let modeCount = set.mode.count
+		let typeCount = set.type.count
+		var mode = ""
+		var type = ""
 		var isValid = 1
 
 		repeat {
-			// Hack. If empty mode or Types class.
-			if firstCount == 0 {
-				firstname = ""
-			} else {
-				firstname = set.mode[getRandIndex(mod: firstCount)]
-			}
-
-			// If empty type.
-			if secondCount == 0 {
-				secondname = ""
-			} else {
-				secondname = set.type[getRandIndex(mod: secondCount)]
+			if !set.isEmpty() {
+				mode = set.mode[getRandIndex(mod: modeCount)]
+				if !set.isScale() {
+					type = set.type[getRandIndex(mod: typeCount)]
+				}
 			}
 
 			// Hack. Checks if interval.
-			if setType == "interval" {
-				isValid = set.isValidInterval(mode: firstname, type: secondname)
+			if setType == ETT_NAMES.interval {
+				isValid = set.isValidInterval(mode: mode, type: type)
 
 				// If interval and is tritone or octave type.
 				if isValid == -1 {
-					secondname = ""
+					type = ""
 				}
 			}
-		} while (setType == "interval" && isValid == 0)
+		} while (setType == ETT_NAMES.interval && isValid == 0)
 
-		return Types(firstname: firstname, secondname: secondname) 
+		return Types(mode: mode, type: type) 
 	}
 
 	// Retrieves a randomly generated Types class.
 	override func giveTestQuestion() {
 		var randSetNum : Int
+		var earTrainingPlaySet = EAR_TRAINING_TYPE()
 
 		repeat {
 			randSetNum = getRandIndex(mod : NUM_EAR_TRAINING_SETS)
 
 			switch randSetNum {
-				case 0: 
-						stringType = "interval"
-						TypeLevel = createType(set: playSet.INTERVALS, setType: stringType!)
-				case 1: 
-						stringType = "chord"
-						TypeLevel = createType(set: playSet.CHORDS, setType: stringType!)
-				case 2: 
-						stringType = "scale"
-						TypeLevel = createType(set: playSet.SCALES, setType: stringType!)
+				case ETT_VALUES.interval: 
+						earTrainingPlaySet = playSet.INTERVALS
+						if !earTrainingPlaySet.isEmpty() {
+							stringType = ETT_NAMES.interval
+							TypeLevel = createType(set: earTrainingPlaySet, setType: stringType!)
+						}
+				case ETT_VALUES.chord: 
+						earTrainingPlaySet = playSet.CHORDS
+						if !earTrainingPlaySet.isEmpty() {
+							stringType = ETT_NAMES.chord
+							TypeLevel = createType(set: earTrainingPlaySet, setType: stringType!)
+						}
+				case ETT_VALUES.scale: 
+						earTrainingPlaySet = playSet.SCALES
+						if !earTrainingPlaySet.isEmpty() {
+							stringType = ETT_NAMES.scale
+							TypeLevel = createType(set: earTrainingPlaySet, setType: stringType!)
+						}
 				default: 
 						TypeLevel = Types()
 			}
-		} while TypeLevel.isEmpty() 
+		} while earTrainingPlaySet.isEmpty() 
+
+		if TypeLevel.readEntry(index: getRandIndex(mod: NUM_FILE_ENTRY)) {
+			queryType()
+		}
+	}
+
+	func isValidSet(choice : Int) -> Bool {
+		var earTrainingPlaySet : EAR_TRAINING_TYPE
+		switch choice {
+			case ETT_VALUES.interval: 
+					earTrainingPlaySet = playSet.INTERVALS
+			case ETT_VALUES.chord: 
+					earTrainingPlaySet = playSet.CHORDS
+			case ETT_VALUES.scale: 
+					earTrainingPlaySet = playSet.SCALES
+			default: 
+					earTrainingPlaySet = EAR_TRAINING_TYPE()
+		}
+
+		if earTrainingPlaySet.isEmpty() {
+			print("invalid value")
+			return false
+		}
+
+		return true
+	}
+
+	override func giveTestQuestion(choice: Int) {
+		var earTrainingPlaySet = EAR_TRAINING_TYPE()
+
+		switch choice {
+			case ETT_VALUES.interval: 
+					earTrainingPlaySet = playSet.INTERVALS
+					if !earTrainingPlaySet.isEmpty() {
+						stringType = ETT_NAMES.interval
+						TypeLevel = createType(set: earTrainingPlaySet, setType: stringType!)
+					}
+			case ETT_VALUES.chord: 
+					earTrainingPlaySet = playSet.CHORDS
+					if !earTrainingPlaySet.isEmpty() {
+						stringType = ETT_NAMES.chord
+						TypeLevel = createType(set: earTrainingPlaySet, setType: stringType!)
+					}
+			case ETT_VALUES.scale: 
+					earTrainingPlaySet = playSet.SCALES
+					if !earTrainingPlaySet.isEmpty() {
+						stringType = ETT_NAMES.scale
+						TypeLevel = createType(set: earTrainingPlaySet, setType: stringType!)
+					}
+			default: 
+					TypeLevel = Types()
+		}
 
 		if TypeLevel.readEntry(index: getRandIndex(mod: NUM_FILE_ENTRY)) {
 			queryType()
@@ -179,5 +242,9 @@ class EarTraining: SyllabusLevels {
 		} else {
 			print("Incorrect!")
 		}
+	}
+
+	override func displayChoices() {
+		playSet.displaySetChoices() 
 	}
 }

@@ -2,24 +2,20 @@ import Foundation
 
 // Temporary class, this is probably Ear Training specific, so I might combine the two classes.
 class Types {
-	internal var filename: String?
-	var stringType1: String?
-	var stringType2: String?
+	fileprivate var filename: String?
+	fileprivate var mode: String?
+	fileprivate var type: String?
 
 	init() {
-		filename = ""
-		stringType1 = ""
-		stringType2 = ""
+		self.filename = ""
+		self.mode = ""
+		self.type = ""
 	}
 
-	init(firstname: String, secondname: String) {
-		filename = firstname + secondname
-		stringType1 = firstname
-		stringType2 = secondname
-	}
-
-	func isEmpty() -> Bool {
-		return filename == ""
+	init(mode: String, type: String) {
+		self.filename = mode + type
+		self.mode = mode
+		self.type = type
 	}
 
 	// This is for demo only. For ear training, a similar function would play an mp3, wav, or midi.
@@ -43,9 +39,10 @@ class Types {
 	// User can enter the mode or type. Example: "minor", or "minor scale" would return a correct
 	//   answer if the type was indeed a minor scale.
 	func isCorrectType(guess: String) -> Bool {
-		return guess == stringType1! || guess == stringType1! + " " + stringType2!
+		return guess == mode! || guess == mode! + " " + type!
 	}
 
+/*
 	// For the audio demo, just plays a test mp3.
 #if AUDIO
 	func playAudio() -> Int32 {
@@ -61,4 +58,5 @@ class Types {
 		return task.terminationStatus
  	}
 #endif
+*/
 }

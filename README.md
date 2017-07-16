@@ -2,6 +2,20 @@
 
 Syllabus Prep is way for students of the Oregon Music Teachers Association (OMTA) to study and prepare for their syllabus tests. Syllabus Prep will cover music theory for each syllabus level including scales, arpeggios, chord progressions, and ear training. This project is intended for development in the Swift language, and will eventually be released to the Apple Store.
 
+#### See Week 3 Update below for a brief description of the current functionality as of 7/16/2017.
+
+## Authors
+
+* **Matthew Balleza** 
+
+- *Initial work* - [mballeza](https://github.com/mballeza)
+
+- *Contact info* - matthewballeza@gmail.com
+
+## License
+
+This project is licensed under the Apache 2.0 License - see the [LICENSE.md](LICENSE.md) file for details
+
 ### Prerequisites
 
 This demo was developed with Swift 3.1.1 Ubuntu 16.04 Release version. This can be downloaded at https://swift.org/download, and the installation instructions can be found at https://swift.org/download/#using-downloads.
@@ -36,6 +50,45 @@ To remove executables
 ```
 make clean
 ```
+
+### Week 3 Update
+
+#### Progress
+
+- Program allows levels 1-10 for ear training only.
+
+- Demo picks a random set of intervals, chords, or scales based on the user's focus of study.
+
+  - Can study all the requirements of a level or one set (interval, chord, or scale).
+  
+- Prompting a test question will display the note names on screen rather than play audio.
+
+#### Limitations
+
+- No audio is played, so it isn't exactly "ear training" quite yet.
+
+- Incomplete set of text files that contain the notes to random intervals, chords, and scales.
+
+- Improper UI to run multiple test questions.
+
+  - To change levels, you have to exit and run the program again.
+
+#### To-do
+
+- Create unit tests.
+
+- Integrate swift files with master branch.
+
+- Decide how audio playback will work for xcode project.
+
+  - Creating .midi or .mp3 files of all the different intervals, chords, and scales is inefficient and takes up a lot of space, but is the simplest solution to start out with.
+  
+  - Generating MIDI sounds is ideal, but needs more exploring and study. See Gene De Lisa's [repositories](https://github.com/genedelisa?utf8=%E2%9C%93&tab=repositories&q=MIDI&type=&language=swift) related to MIDI with the Swift language.
+
+- Decide how visual notes will be displayed for xcode project.
+
+  - These are intended for future addititions to the Syllabus Prep project: rhythm training and sight reading.
+
 
 #### The following is the rest of the template from https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
 

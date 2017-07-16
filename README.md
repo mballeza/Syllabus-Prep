@@ -2,9 +2,23 @@
 
 Syllabus Prep is way for students of the Oregon Music Teachers Association (OMTA) to study and prepare for their syllabus tests. Syllabus Prep will cover music theory for each syllabus level including scales, arpeggios, chord progressions, and ear training. This project is intended for development in the Swift language, and will eventually be released to the Apple Store.
 
+## Authors
+
+* **Matthew Balleza** 
+
+- *Initial work* - [mballeza](https://github.com/mballeza)
+
+- *Contact info* - matthewballeza@gmail.com
+
+## License
+
+This project is licensed under the Apache 2.0 License - see the [LICENSE.md](LICENSE.md) file for details
+
 ### Demo
 
 See the "demo" branch for a Swift command-line simulation of concepts intended for the app release.
+
+[mballeza/Syllabus-Prep/tree/demo](https://github.com/mballeza/Syllabus-Prep/tree/demo)
 
 ### Week 3 Update
 
@@ -99,16 +113,6 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 ## Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the Apache 2.0 License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 

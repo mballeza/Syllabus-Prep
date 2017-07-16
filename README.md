@@ -6,6 +6,30 @@ Syllabus Prep is way for students of the Oregon Music Teachers Association (OMTA
 
 See the "demo" branch for a Swift command-line simulation of concepts intended for the app release.
 
+### Week 3 Update
+
+#### Progress
+
+-Simple app for iOS 9.3 with a couple buttons.
+
+#### Limitations
+
+-App crashes after mp3 file is played for top button.
+
+-App opens a quicktime player for the second button.
+
+  -The intention for the play button is to play the sound on the same screen.
+  
+  -This button was created for educational exploration of different tools in XCode.
+
+#### To-do
+
+-Learn more about how iOS app creation works.
+
+-Integrate the demo branch swift files into the xcode project on master branch.
+
+#### See demo branch for more information on the Week 3 Update
+
 #### The following is the rest of the template from https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
 
 ## Getting Started

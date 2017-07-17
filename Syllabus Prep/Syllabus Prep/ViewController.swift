@@ -9,26 +9,22 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var sampler:MIDISampler!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.sampler = MIDISampler()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
-    @IBAction func playTestAudio(_ sender: UIButton) {
-        let player = Sound()
-        
-        print("Reading file")
-        player.readFileIntoAVPlayer()
-        while(player.avPlayer.isPlaying){}
-        print("Stopping file")
-        player.stopAVPlayer()
+    
+    @IBAction func playMajorScale(_ sender: UIButton) {
+        self.sampler.playMajorScale()
     }
+    
 }
 

@@ -24,9 +24,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kB-GZ-bMn">
                                 <rect key="frame" x="365" y="450" width="105" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Play Test Audio"/>
+                                <state key="normal" title="Play"/>
                                 <connections>
-                                    <action selector="playTestAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z7U-Eh-DNv"/>
+                                    <action selector="playMajorScale:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sbk-50-t8R"/>
                                 </connections>
                             </button>
                         </subviews>

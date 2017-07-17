@@ -13,8 +13,8 @@
 		E2C3C8BF1F12E37C0020F5D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2C3C8BE1F12E37C0020F5D6 /* Assets.xcassets */; };
 		E2C3C8C21F12E37C0020F5D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2C3C8C01F12E37C0020F5D6 /* LaunchScreen.storyboard */; };
 		E2C3C8CD1F12E37D0020F5D6 /* Syllabus_PrepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C3C8CC1F12E37D0020F5D6 /* Syllabus_PrepTests.swift */; };
-		E2C3C8DC1F12E4570020F5D6 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C3C8DB1F12E4570020F5D6 /* Sound.swift */; };
-		E2C3C8DF1F12E4920020F5D6 /* test.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E2C3C8DE1F12E4920020F5D6 /* test.mp3 */; };
+		E2FD05DB1F1C2D6F00AB3015 /* MIDISampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FD05DA1F1C2D6F00AB3015 /* MIDISampler.swift */; };
+		E2FD05DD1F1C2FF300AB3015 /* GeneralUser GS MuseScore v1.442.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = E2FD05DC1F1C2FF300AB3015 /* GeneralUser GS MuseScore v1.442.sf2 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +38,8 @@
 		E2C3C8C81F12E37C0020F5D6 /* Syllabus PrepTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Syllabus PrepTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C3C8CC1F12E37D0020F5D6 /* Syllabus_PrepTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Syllabus_PrepTests.swift; sourceTree = "<group>"; };
 		E2C3C8CE1F12E37D0020F5D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E2C3C8DB1F12E4570020F5D6 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
-		E2C3C8DE1F12E4920020F5D6 /* test.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = test.mp3; path = Resources/test.mp3; sourceTree = "<group>"; };
+		E2FD05DA1F1C2D6F00AB3015 /* MIDISampler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDISampler.swift; sourceTree = "<group>"; };
+		E2FD05DC1F1C2FF300AB3015 /* GeneralUser GS MuseScore v1.442.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GeneralUser GS MuseScore v1.442.sf2"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,9 +81,8 @@
 		E2C3C8B61F12E37C0020F5D6 /* Syllabus Prep */ = {
 			isa = PBXGroup;
 			children = (
-				E2C3C8DD1F12E47A0020F5D6 /* Resources */,
-				E2C3C8DB1F12E4570020F5D6 /* Sound.swift */,
-				E2C3C8DE1F12E4920020F5D6 /* test.mp3 */,
+				E2FD05DA1F1C2D6F00AB3015 /* MIDISampler.swift */,
+				E2FD05DC1F1C2FF300AB3015 /* GeneralUser GS MuseScore v1.442.sf2 */,
 				E2C3C8B71F12E37C0020F5D6 /* AppDelegate.swift */,
 				E2C3C8B91F12E37C0020F5D6 /* ViewController.swift */,
 				E2C3C8BB1F12E37C0020F5D6 /* Main.storyboard */,
@@ -101,13 +100,6 @@
 				E2C3C8CE1F12E37D0020F5D6 /* Info.plist */,
 			);
 			path = "Syllabus PrepTests";
-			sourceTree = "<group>";
-		};
-		E2C3C8DD1F12E47A0020F5D6 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,9 +187,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2FD05DD1F1C2FF300AB3015 /* GeneralUser GS MuseScore v1.442.sf2 in Resources */,
 				E2C3C8C21F12E37C0020F5D6 /* LaunchScreen.storyboard in Resources */,
 				E2C3C8BF1F12E37C0020F5D6 /* Assets.xcassets in Resources */,
-				E2C3C8DF1F12E4920020F5D6 /* test.mp3 in Resources */,
 				E2C3C8BD1F12E37C0020F5D6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,8 +208,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2FD05DB1F1C2D6F00AB3015 /* MIDISampler.swift in Sources */,
 				E2C3C8BA1F12E37C0020F5D6 /* ViewController.swift in Sources */,
-				E2C3C8DC1F12E4570020F5D6 /* Sound.swift in Sources */,
 				E2C3C8B81F12E37C0020F5D6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

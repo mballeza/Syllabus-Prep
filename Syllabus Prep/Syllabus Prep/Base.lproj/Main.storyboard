@@ -21,12 +21,84 @@
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kB-GZ-bMn">
-                                <rect key="frame" x="365" y="450" width="105" height="106"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAx-iC-8PS">
+                                <rect key="frame" x="218" y="144" width="44" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Play"/>
+                                <state key="normal" title="Level I"/>
                                 <connections>
-                                    <action selector="playMajorScale:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sbk-50-t8R"/>
+                                    <action selector="playLevelOne:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FmT-aG-LMT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="es8-4q-2k4">
+                                <rect key="frame" x="216" y="218" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Level II"/>
+                                <connections>
+                                    <action selector="playLevelTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DG2-Yt-QLr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zmf-KD-Wen">
+                                <rect key="frame" x="215" y="304" width="51" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Level III"/>
+                                <connections>
+                                    <action selector="playLevelThree:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L2B-Vo-Fyw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yW2-mR-4rY">
+                                <rect key="frame" x="213" y="377" width="54" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Level IV"/>
+                                <connections>
+                                    <action selector="playLevelFour:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DnA-a4-nGM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJr-TO-GqU">
+                                <rect key="frame" x="572" y="144" width="54" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Level VI"/>
+                                <connections>
+                                    <action selector="playLevelSix:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F1O-x1-fSl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2sJ-Yu-QgO">
+                                <rect key="frame" x="570" y="218" width="58" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Level VII"/>
+                                <connections>
+                                    <action selector="playLevelSeven:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xu1-nS-TeD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NDn-x9-3qc">
+                                <rect key="frame" x="569" y="304" width="61" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Level VIII"/>
+                                <connections>
+                                    <action selector="playLevelEight:" destination="BYZ-38-t0r" eventType="touchUpInside" id="98i-SY-om1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IlW-24-Oa0">
+                                <rect key="frame" x="572" y="377" width="54" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Level IX"/>
+                                <connections>
+                                    <action selector="playLevelNine:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hbo-DM-c2k"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Qm-yT-fCM">
+                                <rect key="frame" x="574" y="463" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Level X"/>
+                                <connections>
+                                    <action selector="playLevelTen:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kRC-Rc-jcP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eJ-Ab-ls4">
+                                <rect key="frame" x="215" y="463" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Level V"/>
+                                <connections>
+                                    <action selector="playLevelFive:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hsR-cz-Lwk"/>
                                 </connections>
                             </button>
                         </subviews>

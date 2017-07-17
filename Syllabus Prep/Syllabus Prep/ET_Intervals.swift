@@ -8,14 +8,24 @@
 
 import Foundation
 
-class ET_Intervals {
-    var intervalSet : [(String, Int8)]
+class ET_Intervals : EAR_TRAINING_TYPE {
+    var intervalSet : [(String, Int8)]?
     
-    init() {
+    override init() {
+        super.init()
         self.intervalSet = []
     }
     
     init(set: [(String, Int8)]) {
+        super.init(name: "interval")
         self.intervalSet = set
+    }
+    
+    override func isEmpty() -> Bool {
+        return intervalSet!.count == 0
+    }
+    
+    override func getInterval() -> Int8 {
+        return self.intervalSet![RandNum().getRandNum(mod: self.intervalSet!.count)].1
     }
 }

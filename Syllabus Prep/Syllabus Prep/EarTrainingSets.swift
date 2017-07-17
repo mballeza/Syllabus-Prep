@@ -58,6 +58,13 @@ class EAR_TRAINING_TYPE {
 	func isEmpty() -> Bool {
 		return name == ""
 	}
+    
+    func getInterval() -> Int8 {
+        return 0
+    }
+    func getSet() -> [Int8] {
+        return []
+    }
 }
 
 // This stores all three ear training types.

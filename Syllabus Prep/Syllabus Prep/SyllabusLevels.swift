@@ -9,7 +9,7 @@
 import Foundation
 import Darwin
 
-let ETT_NAMES = EAR_TRAINING_TYPE_NAMES()
+//let ETT_NAMES = EAR_TRAINING_TYPE_NAMES()
 let ETT_VALUES = EAR_TRAINING_TYPE_VALUES()
 let EAR_TRAINING_LEVELS = EAR_TRAINING_LEVEL_SETS()
 let NUM_EAR_TRAINING_SETS = 3 		// Only 3: intervals, chords, scales.
@@ -76,19 +76,15 @@ class SyllabusLevels {
 	fileprivate func queryType() {
 		print("DEFAULT: should not display")
 	}
-
+/*
 	fileprivate func setRandSeed() {
 		srandom(UInt32(time(nil)))
 	}
 
 	fileprivate func getRandIndex(mod: Int) -> Int {
-#if os(Linux)
-		return random() % mod
-#else
 		return Int(arc4random()) % mod
-#endif
 	}
-
+*/
 	func displayChoices() {
 	}
 }
@@ -115,9 +111,9 @@ class EarTraining: SyllabusLevels {
 			default: self.playSet = EAR_TRAINING_SETS()
 		}
 
-		setRandSeed()
+		RandNum().setRandSeed()
 	}
-
+/*
 	// Generates random indexes to access the Type set. Returns a Types object.
 	fileprivate func createType(set: EAR_TRAINING_TYPE, setType: String) -> Types {
 		let modeCount = set.mode.count
@@ -147,44 +143,36 @@ class EarTraining: SyllabusLevels {
 
 		return Types(mode: mode, type: type) 
 	}
-
-	// Retrieves a randomly generated Types class.
-	override func giveTestQuestion() {
+*/
+    func giveTestQuestion(sampler: MIDISampler) {
 		var randSetNum : Int
 		var earTrainingPlaySet = EAR_TRAINING_TYPE()
 
 		repeat {
-			randSetNum = getRandIndex(mod : NUM_EAR_TRAINING_SETS)
+			randSetNum = RandNum().getRandNum(mod: NUM_EAR_TRAINING_SETS)
 
 			switch randSetNum {
 				case ETT_VALUES.interval: 
-						earTrainingPlaySet = playSet.INTERVALS
-						if !earTrainingPlaySet.isEmpty() {
-							stringType = ETT_NAMES.interval
-							TypeLevel = createType(set: earTrainingPlaySet, setType: stringType!)
-						}
+						earTrainingPlaySet = playSet.intervals
+                        if !earTrainingPlaySet.isEmpty() {
+                            sampler.playInterval(interval: earTrainingPlaySet.getInterval())
+                        }
 				case ETT_VALUES.chord: 
-						earTrainingPlaySet = playSet.CHORDS
-						if !earTrainingPlaySet.isEmpty() {
-							stringType = ETT_NAMES.chord
-							TypeLevel = createType(set: earTrainingPlaySet, setType: stringType!)
-						}
+						earTrainingPlaySet = playSet.chords
+                        if !earTrainingPlaySet.isEmpty() {
+                            sampler.playChord(chord: earTrainingPlaySet.getSet())
+                        }
 				case ETT_VALUES.scale: 
-						earTrainingPlaySet = playSet.SCALES
-						if !earTrainingPlaySet.isEmpty() {
-							stringType = ETT_NAMES.scale
-							TypeLevel = createType(set: earTrainingPlaySet, setType: stringType!)
-						}
+						earTrainingPlaySet = playSet.scales
+                        if !earTrainingPlaySet.isEmpty() {
+                            sampler.playScale(scale: earTrainingPlaySet.getSet())
+                        }
 				default: 
-						TypeLevel = Types()
+						earTrainingPlaySet = EAR_TRAINING_TYPE()
 			}
-		} while earTrainingPlaySet.isEmpty() 
-
-		if TypeLevel.readEntry(index: getRandIndex(mod: NUM_FILE_ENTRY)) {
-			queryType()
-		}
+		} while earTrainingPlaySet.isEmpty()
 	}
-
+/*
 	func isValidSet(choice : Int) -> Bool {
 		var earTrainingPlaySet : EAR_TRAINING_TYPE
 		switch choice {
@@ -251,4 +239,5 @@ class EarTraining: SyllabusLevels {
 	override func displayChoices() {
 		playSet.displaySetChoices() 
 	}
+ */
 }

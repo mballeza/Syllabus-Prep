@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E2A238A81F1D6CCC008F5DD6 /* RandNum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A238A71F1D6CCC008F5DD6 /* RandNum.swift */; };
 		E2C3C8B81F12E37C0020F5D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C3C8B71F12E37C0020F5D6 /* AppDelegate.swift */; };
 		E2C3C8BA1F12E37C0020F5D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C3C8B91F12E37C0020F5D6 /* ViewController.swift */; };
 		E2C3C8BD1F12E37C0020F5D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2C3C8BB1F12E37C0020F5D6 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E2A238A71F1D6CCC008F5DD6 /* RandNum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandNum.swift; sourceTree = "<group>"; };
 		E2C3C8B41F12E37C0020F5D6 /* Syllabus Prep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Syllabus Prep.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C3C8B71F12E37C0020F5D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2C3C8B91F12E37C0020F5D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E2A238A91F1D6CD2008F5DD6 /* Random Number Generator */ = {
+			isa = PBXGroup;
+			children = (
+				E2A238A71F1D6CCC008F5DD6 /* RandNum.swift */,
+			);
+			name = "Random Number Generator";
+			sourceTree = "<group>";
+		};
 		E2C3C8AB1F12E37C0020F5D6 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +111,7 @@
 		E2C3C8B61F12E37C0020F5D6 /* Syllabus Prep */ = {
 			isa = PBXGroup;
 			children = (
+				E2A238A91F1D6CD2008F5DD6 /* Random Number Generator */,
 				E2FD05EB1F1C5C2500AB3015 /* App */,
 				E2FD05EA1F1C5C1400AB3015 /* Levels */,
 				E2FD05E91F1C5C0000AB3015 /* Theory */,
@@ -281,6 +292,7 @@
 				E2FD05DB1F1C2D6F00AB3015 /* MIDISampler.swift in Sources */,
 				E2C3C8BA1F12E37C0020F5D6 /* ViewController.swift in Sources */,
 				E2FD05F51F1C6F0F00AB3015 /* Chords.swift in Sources */,
+				E2A238A81F1D6CCC008F5DD6 /* RandNum.swift in Sources */,
 				E2FD05ED1F1C670A00AB3015 /* Intervals.swift in Sources */,
 				E2C3C8B81F12E37C0020F5D6 /* AppDelegate.swift in Sources */,
 				E2FD05E51F1C5B4000AB3015 /* Types.swift in Sources */,

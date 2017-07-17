@@ -24,7 +24,8 @@ class MIDISampler {
     let defaultBankLSB = UInt8(kAUSampler_DefaultBankLSB)
     
     let gmBrightAcousticPiano = UInt8(2)
-    let millisecond = 1000000
+    let ticksPerSecond = Double(1000000)
+    let defaultVolume = UInt8(64)
     
     init() {
         initAudioEngine()
@@ -80,15 +81,78 @@ class MIDISampler {
         self.sampler.sendProgramChange(gmpatch, bankMSB: melodicBank, bankLSB: defaultBankLSB, onChannel: channel)
     }
     
-    func playMajorScale() {
-        // of course, loading the patch every time is not optimal.
+    func playInterval(interval: Int8) {
         loadPatch(gmBrightAcousticPiano)
-        let majorscale = [65, 67, 69, 70, 72, 74, 76, 77]
-        for i in majorscale {
-            self.sampler.startNote(UInt8(i), withVelocity: 64, onChannel: 0)
-            usleep(UInt32(0.5 * Double(millisecond)))
-            self.sampler.stopNote(UInt8(i), onChannel: 0)
+        
+        let startKey = NOTES_ARRAY[RandNum().getRandNum(mod: NOTES_ARRAY_SIZE)]
+        let firstKey = startKey?[RandNum().getRandNum(mod: NOTES_SIZE)]
+        let secondKey = firstKey! + interval
+        
+        let playSet : [Int8] = [firstKey!, secondKey]
+        
+        playNoteSetTogether(set: playSet)
+    }
+    
+    func playChord(chord: [Int8]) {
+        loadPatch(gmBrightAcousticPiano)
+        
+        let startKey = NOTES_ARRAY[RandNum().getRandNum(mod: NOTES_ARRAY_SIZE)]
+        let firstKey = startKey?[RandNum().getRandNum(mod: NOTES_SIZE)]
+        let secondKey = firstKey! + chord[0]
+        let thirdKey = firstKey! + chord[1]
+        
+        let playSet : [Int8] = [firstKey!, secondKey, thirdKey]
+        
+        playNoteSetTogether(set: playSet)
+    }
+    
+    func playNoteSetTogether(set: [Int8]) {
+        // Play notes separate
+        for i in 0...set.count-1 {
+            self.sampler.startNote(UInt8(set[i]), withVelocity: defaultVolume, onChannel: 0)
+            pauseNoteDuration(seconds: 1)
         }
+        
+        for i in 0...set.count-1 {
+            self.sampler.stopNote(UInt8(set[i]), onChannel: 0)
+        }
+        
+        pauseNoteDuration(seconds: 0.5)
+        
+        // Then together
+        for i in 0...set.count-1 {
+            self.sampler.startNote(UInt8(set[i]), withVelocity: defaultVolume, onChannel: 0)
+        }
+        
+        pauseNoteDuration(seconds: 2)
+        
+        for i in 0...set.count-1 {
+            self.sampler.stopNote(UInt8(set[i]), onChannel: 0)
+        }
+    }
+    
+    func playScale(scale: [Int8]) {
+        var playSet : [Int8] = Array(repeating: 0, count: scale.count + 1)
+        
+        let startKey = NOTES_ARRAY[RandNum().getRandNum(mod: NOTES_ARRAY_SIZE)]
+        let firstKey = startKey?[RandNum().getRandNum(mod: NOTES_SIZE)]
+        
+        playSet[0] = firstKey!
+        
+        for i in 1...scale.count {
+            playSet[i] = scale[i-1] + playSet[i-1]
+        }
+        
+        for i in 0...scale.count {
+            self.sampler.startNote(UInt8(playSet[i]), withVelocity: defaultVolume, onChannel: 0)
+            pauseNoteDuration(seconds: 0.5)
+            self.sampler.stopNote(UInt8(playSet[i]), onChannel: 0)
+        }
+
+    }
+
+    func pauseNoteDuration(seconds: Double) {
+        usleep(UInt32(seconds * ticksPerSecond))
     }
 }
 

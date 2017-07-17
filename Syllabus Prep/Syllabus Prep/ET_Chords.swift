@@ -8,14 +8,24 @@
 
 import Foundation
 
-class ET_Chords {
-    var chords : [(String, [Int8])]
+class ET_Chords : EAR_TRAINING_TYPE {
+    var chords : [(String, [Int8])]?
     
-    init() {
+    override init() {
+        super.init()
         chords = []
     }
     
     init(set: [(String, [Int8])]) {
+        super.init(name: "chord")
         chords = set
+    }
+    
+    override func isEmpty() -> Bool {
+        return chords!.count == 0
+    }
+    
+    override func getSet() -> [Int8] {
+        return self.chords![RandNum().getRandNum(mod: self.chords!.count)].1
     }
 }

@@ -5,6 +5,11 @@
 //  Created by Gene De Lisa on 1/12/16.
 //  Copyright © 2016 Gene De Lisa. All rights reserved.
 //
+//
+//  Syllabus Prep
+//
+//  Modified by Matthew Balleza on 7/16/17.
+//  Copyright © 2017 Matthew Balleza. All rights reserved.
 
 import Foundation
 import AVKit

@@ -1,14 +1,14 @@
 # Syllabus Prep
 
-Syllabus Prep is way for students of the Oregon Music Teachers Association (OMTA) to study and prepare for their syllabus tests. Syllabus Prep will cover music theory for each syllabus level including scales, arpeggios, chord progressions, and ear training. This project is intended for development in the Swift language, and will eventually be released to the Apple Store.
+Syllabus Prep is way for students of the Oregon Music Teachers Association (OMTA) to study and prepare for their syllabus tests. Syllabus Prep will cover music theory for each syllabus level including ear training, rhythm training, and sight reading. This project is being developed in XCode in the Swift 3 language, and will eventually be released to the Apple Store.
 
-## Authors
+## Author
 
 * **Matthew Balleza** 
 
 - *Initial work* - [mballeza](https://github.com/mballeza)
 
-- *Contact info* - matthewballeza@gmail.com
+- *Contact info* - matthewballeza@gmail.com, mballeza.vm@gmail.com
 
 ## License
 
@@ -20,29 +20,65 @@ See the "demo" branch for a Swift command-line simulation of concepts intended f
 
 [mballeza/Syllabus-Prep/tree/demo](https://github.com/mballeza/Syllabus-Prep/tree/demo)
 
-### Week 3 Update
+### Update 7/18/17
 
-#### Progress
+#### Current State
 
--Simple app for iOS 9.3 with a couple buttons.
+- Simple one-scene app for iOS 9.3 with one button for each level (10 total).
+
+  - Ear training only: each button plays a random interval, chord, or scale.
+
+  - Each level has its own set of intervals, chords, and/or scales based on the OMTA requirements.
 
 #### Limitations
 
--App crashes after mp3 file is played for top button.
+- MIDI note generation relies on a sleep call between notes. This is not ideal, and needs a better alternative in future updates.
 
--App opens a quicktime player for the second button.
-
-  -The intention for the play button is to play the sound on the same screen.
-  
-  -This button was created for educational exploration of different tools in XCode.
+- Cannot yet separate the random generation between intervals, chords, and scales; i.e. a user wanted to study some level *n* and wanted to only play intervals and not chords or scales.
 
 #### To-do
 
--Learn more about how iOS app creation works.
+- Create unit tests.
 
--Integrate the demo branch swift files into the xcode project on master branch.
+- Allow options to user to study single sets (intervals, chords, or scales individually).
+
+- Improve UI.
+
+  - Level selection moves to another scene.
+  
+  - Info to indicate current study session: level, study set, etc.
+  
+  - Navigation.
+
+### Week 3 Update - 7/15/17
+
+#### Current State
+
+- Simple app for iOS 9.3 with a couple buttons.
+
+#### Limitations
+
+- App crashes after mp3 file is played for top button.
+
+- App opens a quicktime player for the second button.
+
+  - The intention for the play button is to play the sound on the same screen.
+  
+  - This button was created for educational exploration of different tools in XCode.
+
+#### To-do
+
+- Learn more about how iOS app creation works.
+
+- Integrate the demo branch swift files into the xcode project on master branch.
 
 #### See demo branch for more information on the Week 3 Update
+
+## Useful Links
+
+- (link to OMTA syllabus test requirements)
+
+- (links to MIDI tools)
 
 #### The following is the rest of the template from https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
 

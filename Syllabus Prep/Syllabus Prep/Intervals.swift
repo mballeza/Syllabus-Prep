@@ -8,6 +8,12 @@
 
 import Foundation
 
+// All intervals from minor second to octave. These are structured as a
+//  tuple of a String and an Int8. The String describes what the
+//  Interval type is, and is for answer verification when a user is given a
+//  test question. The Int8 value represents the number of half steps
+//  between the first note and the second note.
+
 struct Intervals {
     let minorsecond = ("minorsecond", Int8(1))
     let majorsecond = ("majorsecond", Int8(2))

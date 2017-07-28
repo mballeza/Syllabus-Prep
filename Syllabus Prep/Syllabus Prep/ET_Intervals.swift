@@ -8,6 +8,11 @@
 
 import Foundation
 
+// Ear Training Intervals. This class contains a set of Intervals. Currently
+//  there are two functions: isEmpty() and getInterval(). The former returns
+//  true if the Interval set is empty, and the latter returns an Int from
+//  a random Interval tuple.
+
 class ET_Intervals : EAR_TRAINING_TYPE {
     var intervalSet : [(String, Int8)]?
     
@@ -21,10 +26,13 @@ class ET_Intervals : EAR_TRAINING_TYPE {
         self.intervalSet = set
     }
     
+	// Returns true if class was not initialized with a nonempty interval set.
+	// Returns false otherwise.
     override func isEmpty() -> Bool {
         return intervalSet!.count == 0
     }
     
+	// Returns a random Int value from a Interval tuple.
     override func getInterval() -> Int8 {
         return self.intervalSet![RandNum().getRandNum(mod: self.intervalSet!.count)].1
     }

@@ -19,25 +19,65 @@ let setScales = Scales()
 // This stores all 10 levels of the ear training portion of the syllabus. The information for each
 //   level requirement was taken from the OMTA Piano Syllabus Levels I-X 2012 Version B book.
 struct EAR_TRAINING_LEVEL_SETS {
-    let one = EAR_TRAINING_SETS(intervalset: [], chordset: [setChords.majortriad, setChords.minortriad], scaleset: [])
+    let one = EAR_TRAINING_SETS(
+		intervalset: 	[], 
+		chordset: 		[setChords.majortriad, setChords.minortriad], 
+		scaleset: 		[]
+	)
     
-    let two = EAR_TRAINING_SETS(intervalset: [setIntervals.majorthird, setIntervals.minorthird], chordset: [setChords.majortriad, setChords.minortriad], scaleset: [])
+    let two = EAR_TRAINING_SETS(
+		intervalset: 	[setIntervals.majorthird, setIntervals.minorthird], 
+		chordset: 		[setChords.majortriad, setChords.minortriad], 
+		scaleset: 		[]
+	)
 
-    let three = EAR_TRAINING_SETS(intervalset: [setIntervals.majorsecond, setIntervals.minorsecond], chordset: [], scaleset: [setScales.naturalminor, setScales.harmonicminor, setScales.melodicminor, setScales.wholetone, setScales.chromatic])
+    let three = EAR_TRAINING_SETS(
+		intervalset: 	[setIntervals.majorsecond, setIntervals.minorsecond], 
+		chordset: 		[], 
+		scaleset: 		[setScales.naturalminor, setScales.harmonicminor, setScales.melodicminor, setScales.wholetone, setScales.chromatic]
+	)
 
-    let four = EAR_TRAINING_SETS(intervalset: [setIntervals.perfectfourth, setIntervals.perfectfifth], chordset: [], scaleset: [setScales.lydian, setScales.mixolydian])
+    let four = EAR_TRAINING_SETS(
+		intervalset: 	[setIntervals.perfectfourth, setIntervals.perfectfifth], 
+		chordset: 		[], 
+		scaleset: 		[setScales.lydian, setScales.mixolydian]
+	)
 
-    let five = EAR_TRAINING_SETS(intervalset: [setIntervals.majorsixth, setIntervals.minorsixth], chordset: [], scaleset: [setScales.dorian, setScales.phrygian])
+    let five = EAR_TRAINING_SETS(
+		intervalset: 	[setIntervals.majorsixth, setIntervals.minorsixth], 
+		chordset:	 	[], 
+		scaleset: 		[setScales.dorian, setScales.phrygian]
+	)
 
-    let six = EAR_TRAINING_SETS(intervalset: [setIntervals.majorseventh, setIntervals.minorseventh, setIntervals.tritone], chordset: [], scaleset: [setScales.locrian, setScales.wholetone, setScales.chromatic])
+    let six = EAR_TRAINING_SETS(
+		intervalset: 	[setIntervals.majorseventh, setIntervals.minorseventh, setIntervals.tritone], 
+		chordset: 		[], 
+		scaleset: 		[setScales.locrian, setScales.wholetone, setScales.chromatic]
+	)
     
-    let seven = EAR_TRAINING_SETS(intervalset: [], chordset: [setChords.majortriad, setChords.minortriad, setChords.diminishedtriad, setChords.augmentedtriad], scaleset: [])
+    let seven = EAR_TRAINING_SETS(
+		intervalset: 	[], 
+		chordset: 		[setChords.majortriad, setChords.minortriad, setChords.diminishedtriad, setChords.augmentedtriad], 
+		scaleset: 		[]
+	)
     
-    let eight = EAR_TRAINING_SETS(intervalset: [setIntervals.majorsecond, setIntervals.minorsecond, setIntervals.majorthird, setIntervals.minorthird, setIntervals.perfectfourth, setIntervals.tritone], chordset: [], scaleset: [])
+    let eight = EAR_TRAINING_SETS(
+		intervalset: 	[setIntervals.majorsecond, setIntervals.minorsecond, setIntervals.majorthird, setIntervals.minorthird, setIntervals.perfectfourth, setIntervals.tritone], 
+		chordset: 		[], 
+		scaleset: 		[]
+	)
     
-    let nine = EAR_TRAINING_SETS(intervalset: [setIntervals.majorsixth, setIntervals.minorsixth, setIntervals.majorseventh, setIntervals.minorseventh, setIntervals.perfectfifth, setIntervals.octave], chordset: [], scaleset: [])
+    let nine = EAR_TRAINING_SETS(
+		intervalset: 	[setIntervals.majorsixth, setIntervals.minorsixth, setIntervals.majorseventh, setIntervals.minorseventh, setIntervals.perfectfifth, setIntervals.octave], 
+		chordset: 		[], 
+		scaleset: 		[]
+	)
     
-    let ten = EAR_TRAINING_SETS(intervalset: [setIntervals.majorsecond, setIntervals.minorsecond,setIntervals.majorthird, setIntervals.minorthird, setIntervals.majorsixth, setIntervals.minorsixth, setIntervals.majorseventh, setIntervals.minorseventh, setIntervals.augmentedfourth, setIntervals.augmentedfifth, setIntervals.diminishedfifth, setIntervals.perfectfourth, setIntervals.perfectfifth, setIntervals.tritone, setIntervals.octave], chordset: [], scaleset: [])
+    let ten = EAR_TRAINING_SETS(
+		intervalset: 	[setIntervals.majorsecond, setIntervals.minorsecond,setIntervals.majorthird, setIntervals.minorthird, setIntervals.majorsixth, setIntervals.minorsixth, setIntervals.majorseventh, setIntervals.minorseventh, setIntervals.augmentedfourth, setIntervals.augmentedfifth, setIntervals.diminishedfifth, setIntervals.perfectfourth, setIntervals.perfectfifth, setIntervals.tritone, setIntervals.octave], 
+		chordset: 		[], 
+		scaleset: 		[]
+	)
 } 
 
 // This stores String arrays of the modes and types in a particular ear training type (interval,

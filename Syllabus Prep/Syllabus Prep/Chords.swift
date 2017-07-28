@@ -8,6 +8,13 @@
 
 import Foundation
 
+// Major, minor, diminished, and augmented triads. These are structured as
+//  a tuple of a String and an Int8 array. The String describes what the
+//  Chord type is, and is for answer verification when a user is given a
+//  test question. The array contains 2 Int8 values: the value of the 
+//  interval between root and third, and the value of the interval between
+//  root and fifth.
+
 struct Chords {
     let minortriad : (String, [Int8]) = ("minortriad", [3, 7])
     let majortriad : (String, [Int8]) = ("majortriad", [4, 7])

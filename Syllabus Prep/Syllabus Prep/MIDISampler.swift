@@ -15,6 +15,10 @@ import Foundation
 import AVKit
 import AVFoundation
 
+enum MIDIErrors : Error {
+    case invalidETTValue
+}
+
 class MIDISampler {
     
     var engine:AVAudioEngine!
@@ -26,6 +30,8 @@ class MIDISampler {
     let gmBrightAcousticPiano = UInt8(2)
     let ticksPerSecond = Double(1000000)
     let defaultVolume = UInt8(64)
+    
+    let noteset = Notes()
     
     init() {
         initAudioEngine()
@@ -81,7 +87,7 @@ class MIDISampler {
         self.sampler.sendProgramChange(gmpatch, bankMSB: melodicBank, bankLSB: defaultBankLSB, onChannel: channel)
     }
     
-    func playSet(randSetNum : Int, playSet : EAR_TRAINING_TYPE) {
+    func playSet(randSetNum : Int, playSet : EAR_TRAINING_TYPE) throws {
         switch randSetNum {
         case ETT_VALUES.interval:
             playInterval(interval: playSet.getInterval())
@@ -90,18 +96,18 @@ class MIDISampler {
         case ETT_VALUES.scale:
             playScale(scale: playSet.getSet())
         default:
-            print("Error. No playset could be played.")
+            throw MIDIErrors.invalidETTValue
         }
     }
     
     func playInterval(interval: Int8) {
         loadPatch(gmBrightAcousticPiano)
         
-        let startKey = NOTES_ARRAY[RandNum().getRandNum(mod: NOTES_ARRAY_SIZE)]
-        let firstKey = startKey?[RandNum().getRandNum(mod: NOTES_SIZE)]
-        let secondKey = firstKey! + interval
+        let startKey = noteset.all[RandNum().getRandNum(mod: noteset.all.count)]
+        let firstKey = startKey[RandNum().getRandNum(mod: noteset.notesize)]
+        let secondKey = firstKey + interval
         
-        let playSet : [Int8] = [firstKey!, secondKey]
+        let playSet : [Int8] = [firstKey, secondKey]
         
         playNoteSetTogether(set: playSet)
     }
@@ -109,12 +115,12 @@ class MIDISampler {
     func playChord(chord: [Int8]) {
         loadPatch(gmBrightAcousticPiano)
         
-        let startKey = NOTES_ARRAY[RandNum().getRandNum(mod: NOTES_ARRAY_SIZE)]
-        let firstKey = startKey?[RandNum().getRandNum(mod: NOTES_SIZE)]
-        let secondKey = firstKey! + chord[0]
-        let thirdKey = firstKey! + chord[1]
+        let startKey = noteset.all[RandNum().getRandNum(mod: noteset.all.count)]
+        let firstKey = startKey[RandNum().getRandNum(mod: noteset.notesize)]
+        let secondKey = firstKey + chord[0]
+        let thirdKey = firstKey + chord[1]
         
-        let playSet : [Int8] = [firstKey!, secondKey, thirdKey]
+        let playSet : [Int8] = [firstKey, secondKey, thirdKey]
         
         playNoteSetTogether(set: playSet)
     }
@@ -147,10 +153,10 @@ class MIDISampler {
     func playScale(scale: [Int8]) {
         var playSet : [Int8] = Array(repeating: 0, count: scale.count + 1)
         
-        let startKey = NOTES_ARRAY[RandNum().getRandNum(mod: NOTES_ARRAY_SIZE)]
-        let firstKey = startKey?[RandNum().getRandNum(mod: NOTES_SIZE)]
+        let startKey = noteset.all[RandNum().getRandNum(mod: noteset.all.count)]
+        let firstKey = startKey[RandNum().getRandNum(mod: noteset.notesize)]
         
-        playSet[0] = firstKey!
+        playSet[0] = firstKey
         
         for i in 1...scale.count {
             playSet[i] = scale[i-1] + playSet[i-1]

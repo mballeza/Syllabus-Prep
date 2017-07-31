@@ -14,6 +14,9 @@
 struct Notes {
     var AFlat, A, BFlat, B, C, DFlat, D, EFlat, E, F, GFlat, G : [Int8]!
     
+    var all: [[Int8]]!
+    var notesize = 0
+    
     init() {
         //self.AFlat = [8, 20, 32, 44, 56, 68, 80, 92, 104, 116]
         self.AFlat = [44, 56, 68]	// Three octave range for now
@@ -28,6 +31,9 @@ struct Notes {
         self.F = increment(note: E)
         self.GFlat = increment(note : F)
         self.G = increment(note: GFlat)
+        
+        self.all = [AFlat, A, BFlat, B, C, DFlat, D, EFlat, E, F, GFlat, G]
+        self.notesize = self.AFlat.count
     }
     
 	// Increments an array by 1 and returns the new array.
@@ -39,11 +45,5 @@ struct Notes {
         return nextNote
     }
 }
-
-// Hack, puts all the notes into an array for easy random access
-let NOTES_ARRAY = [Notes().AFlat, Notes().A, Notes().BFlat, Notes().B, Notes().C, Notes().DFlat, Notes().D, Notes().EFlat, Notes().E, Notes().F, Notes().GFlat, Notes().G]
-
-let NOTES_ARRAY_SIZE = NOTES_ARRAY.count	// Number of Notes, i.e. 12 notes.
-let NOTES_SIZE = Notes().AFlat.count		// Value of octave range.
 
 

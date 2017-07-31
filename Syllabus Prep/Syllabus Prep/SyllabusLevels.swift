@@ -90,7 +90,7 @@ class SyllabusLevels {
 }
 
 class EarTraining: SyllabusLevels {
-	fileprivate var stringType : String?	// Hack, used in queryType. ETT_NAMES.interval, ETT_NAMES.chord, or ETT_NAMES.scale
+//	fileprivate var stringType : String?	// Hack, used in queryType. ETT_NAMES.interval, ETT_NAMES.chord, or ETT_NAMES.scale
 
 	init(level: Int) {
 		super.init()
@@ -163,7 +163,13 @@ class EarTraining: SyllabusLevels {
 			}
 		} while earTrainingPlaySet.isEmpty()
         
-        sampler.playSet(randSetNum: randSetNum, playSet: earTrainingPlaySet)
+        do {
+            try sampler.playSet(randSetNum: randSetNum, playSet: earTrainingPlaySet)
+        } catch MIDIErrors.invalidETTValue {
+            print ("invalid ETT value")
+        } catch {
+            print ("could not play set")
+        }
 	}
 /*
 	func isValidSet(choice : Int) -> Bool {

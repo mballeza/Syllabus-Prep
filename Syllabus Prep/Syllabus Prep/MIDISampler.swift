@@ -81,6 +81,19 @@ class MIDISampler {
         self.sampler.sendProgramChange(gmpatch, bankMSB: melodicBank, bankLSB: defaultBankLSB, onChannel: channel)
     }
     
+    func playSet(randSetNum : Int, playSet : EAR_TRAINING_TYPE) {
+        switch randSetNum {
+        case ETT_VALUES.interval:
+            playInterval(interval: playSet.getInterval())
+        case ETT_VALUES.chord:
+            playChord(chord: playSet.getSet())
+        case ETT_VALUES.scale:
+            playScale(scale: playSet.getSet())
+        default:
+            print("Error. No playset could be played.")
+        }
+    }
+    
     func playInterval(interval: Int8) {
         loadPatch(gmBrightAcousticPiano)
         

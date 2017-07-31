@@ -24,36 +24,51 @@ class EarTrainingTests: XCTestCase {
         super.tearDown()
     }
     
+    // Test for Ear Training Types object creation. Tests for empty and nonempty objects.
     func testEarTrainingNewObjects() {
         let intervalname = "interval"
         let chordname = "chord"
         let scalename = "scale"
-        let intervalset = Int8(1)
-        let chordset : [Int8] = [1,2]
-        let scaleset : [Int8] = [1,2,-2,-1]
+        let major2nd = setIntervals.majorsecond
+        let minor2nd = setIntervals.minorsecond
+        let majortriad = setChords.majortriad
+        let minortriad = setChords.minortriad
+        let majorscale = setScales.major
+        let dorian = setScales.dorian
+        let intervalset = [major2nd, minor2nd]
+        let chordset = [majortriad, minortriad]
+        let scaleset = [majorscale, dorian]
         intervals = ET_Intervals()
         chords = ET_Chords()
         scales = ET_Scales()
         
+        // Empty case
         XCTAssert(intervals.isEmpty(), "Intervals returned nonempty when empty")
         XCTAssert(chords.isEmpty(), "Chords returned nonempty when empty")
         XCTAssert(scales.isEmpty(), "Scales returned nonempty when empty")
 
-        intervals = ET_Intervals(set: [(intervalname, intervalset)])
-        chords = ET_Chords(set: [(chordname, chordset)])
-        scales = ET_Scales(set: [(scalename, scaleset)])
+        intervals = ET_Intervals(set: intervalset)
+        chords = ET_Chords(set: chordset)
+        scales = ET_Scales(set: scaleset)
         
+        // Nonempty case
         XCTAssert(!intervals.isEmpty(), "Intervals returned empty when nonempty")
         XCTAssert(!chords.isEmpty(), "Chords returned empty when nonempty")
         XCTAssert(!scales.isEmpty(), "Scales returned empty when nonempty")
         
+        // Assert name match
         XCTAssert(intervals.name == intervalname, "Interval name does not match init")
         XCTAssert(chords.name == chordname, "Chord name does not match init")
         XCTAssert(scales.name == scalename, "Interval name does not match init")
-
-        XCTAssert(intervals.getInterval() == intervalset, "Interval set does not match init")
-        XCTAssert(chords.getSet() == chordset, "Chord set does not match init")
-        XCTAssert(scales.getSet() == scaleset, "Scale set does not match init")
+        
+        let randInterval = intervals.getInterval()
+        let randChord = chords.getSet()
+        let randScale = scales.getSet()
+        
+        // Assert getInterval() and getSet() is contained within the initial set
+        XCTAssert(intervalset[0].1 == randInterval || intervalset[1].1 == randInterval, "Interval set does not match init")
+        XCTAssert(chordset[0].1 == randChord || chordset[1].1 == randChord, "Chord set does not match init")
+        XCTAssert(scaleset[0].1 == randScale || scaleset[1].1 == randScale, "Scale set does not match init")
     }
     
     func testExample() {

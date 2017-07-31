@@ -154,23 +154,16 @@ class EarTraining: SyllabusLevels {
 			switch randSetNum {
 				case ETT_VALUES.interval: 
 						earTrainingPlaySet = playSet.intervals
-                        if !earTrainingPlaySet.isEmpty() {
-                            sampler.playInterval(interval: earTrainingPlaySet.getInterval())
-                        }
 				case ETT_VALUES.chord: 
 						earTrainingPlaySet = playSet.chords
-                        if !earTrainingPlaySet.isEmpty() {
-                            sampler.playChord(chord: earTrainingPlaySet.getSet())
-                        }
 				case ETT_VALUES.scale: 
 						earTrainingPlaySet = playSet.scales
-                        if !earTrainingPlaySet.isEmpty() {
-                            sampler.playScale(scale: earTrainingPlaySet.getSet())
-                        }
 				default: 
 						earTrainingPlaySet = EAR_TRAINING_TYPE()
 			}
 		} while earTrainingPlaySet.isEmpty()
+        
+        sampler.playSet(randSetNum: randSetNum, playSet: earTrainingPlaySet)
 	}
 /*
 	func isValidSet(choice : Int) -> Bool {

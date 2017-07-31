@@ -98,7 +98,7 @@ class EAR_TRAINING_TYPE {
 	func isEmpty() -> Bool {
 		return name == ""
 	}
-    
+
     func getInterval() -> Int8 {
         return 0
     }

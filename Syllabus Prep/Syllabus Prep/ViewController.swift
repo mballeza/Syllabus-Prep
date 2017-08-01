@@ -9,13 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var sampler:MIDISampler!
-    var earTraining : EarTraining!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.sampler = MIDISampler()
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,6 +20,31 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let levelMenuController = segue.destination as! LevelMenu
+        if segue.identifier == "segueLevelOne" {
+            levelMenuController.level = 1
+        } else if segue.identifier == "segueLevelTwo" {
+            levelMenuController.level = 2
+        } else if segue.identifier == "segueLevelThree" {
+            levelMenuController.level = 3
+        } else if segue.identifier == "segueLevelFour" {
+            levelMenuController.level = 4
+        } else if segue.identifier == "segueLevelFive" {
+            levelMenuController.level = 5
+        } else if segue.identifier == "segueLevelSix" {
+            levelMenuController.level = 6
+        } else if segue.identifier == "segueLevelSeven" {
+            levelMenuController.level = 7
+        } else if segue.identifier == "segueLevelEight" {
+            levelMenuController.level = 8
+        } else if segue.identifier == "segueLevelNine" {
+            levelMenuController.level = 9
+        } else if segue.identifier == "segueLevelTen" {
+            levelMenuController.level = 10
+        }
+    }
+    /*
     @IBAction func playLevelOne(_ sender: UIButton) {
         self.earTraining = EarTraining(level: 1)
         self.earTraining.giveTestQuestion(sampler: self.sampler)
@@ -72,6 +94,6 @@ class ViewController: UIViewController {
         self.earTraining = EarTraining(level: 10)
         self.earTraining.giveTestQuestion(sampler: self.sampler)
     }
-    
+    */
 }
 

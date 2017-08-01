@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E223B02E1F2707B700C6ED52 /* LevelMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E223B02D1F2707B700C6ED52 /* LevelMenu.swift */; };
 		E2A238A81F1D6CCC008F5DD6 /* RandNum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A238A71F1D6CCC008F5DD6 /* RandNum.swift */; };
 		E2BB4E591F2D4943008A4AB9 /* EarTrainingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BB4E581F2D4943008A4AB9 /* EarTrainingTests.swift */; };
 		E2C3C8B81F12E37C0020F5D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C3C8B71F12E37C0020F5D6 /* AppDelegate.swift */; };
@@ -15,6 +16,7 @@
 		E2C3C8BF1F12E37C0020F5D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2C3C8BE1F12E37C0020F5D6 /* Assets.xcassets */; };
 		E2C3C8C21F12E37C0020F5D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2C3C8C01F12E37C0020F5D6 /* LaunchScreen.storyboard */; };
 		E2C3C8CD1F12E37D0020F5D6 /* Syllabus_PrepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C3C8CC1F12E37D0020F5D6 /* Syllabus_PrepTests.swift */; };
+		E2D6ED731F281C190015864E /* EarTrainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D6ED721F281C190015864E /* EarTrainingView.swift */; };
 		E2FD05DB1F1C2D6F00AB3015 /* MIDISampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FD05DA1F1C2D6F00AB3015 /* MIDISampler.swift */; };
 		E2FD05DD1F1C2FF300AB3015 /* GeneralUser GS MuseScore v1.442.sf2 in Resources */ = {isa = PBXBuildFile; fileRef = E2FD05DC1F1C2FF300AB3015 /* GeneralUser GS MuseScore v1.442.sf2 */; };
 		E2FD05E21F1C5B4000AB3015 /* EarTrainingSets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FD05DE1F1C5B4000AB3015 /* EarTrainingSets.swift */; };
@@ -40,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E223B02D1F2707B700C6ED52 /* LevelMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelMenu.swift; sourceTree = "<group>"; };
 		E2A238A71F1D6CCC008F5DD6 /* RandNum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandNum.swift; sourceTree = "<group>"; };
 		E2BB4E581F2D4943008A4AB9 /* EarTrainingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarTrainingTests.swift; sourceTree = "<group>"; };
 		E2C3C8B41F12E37C0020F5D6 /* Syllabus Prep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Syllabus Prep.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +55,7 @@
 		E2C3C8C81F12E37C0020F5D6 /* Syllabus PrepTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Syllabus PrepTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C3C8CC1F12E37D0020F5D6 /* Syllabus_PrepTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Syllabus_PrepTests.swift; sourceTree = "<group>"; };
 		E2C3C8CE1F12E37D0020F5D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2D6ED721F281C190015864E /* EarTrainingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarTrainingView.swift; sourceTree = "<group>"; };
 		E2FD05DA1F1C2D6F00AB3015 /* MIDISampler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MIDISampler.swift; sourceTree = "<group>"; };
 		E2FD05DC1F1C2FF300AB3015 /* GeneralUser GS MuseScore v1.442.sf2 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GeneralUser GS MuseScore v1.442.sf2"; sourceTree = "<group>"; };
 		E2FD05DE1F1C5B4000AB3015 /* EarTrainingSets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarTrainingSets.swift; sourceTree = "<group>"; };
@@ -182,6 +186,8 @@
 				E2C3C8BE1F12E37C0020F5D6 /* Assets.xcassets */,
 				E2C3C8C01F12E37C0020F5D6 /* LaunchScreen.storyboard */,
 				E2C3C8C31F12E37C0020F5D6 /* Info.plist */,
+				E223B02D1F2707B700C6ED52 /* LevelMenu.swift */,
+				E2D6ED721F281C190015864E /* EarTrainingView.swift */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -302,10 +308,12 @@
 				E2FD05E41F1C5B4000AB3015 /* SyllabusLevels.swift in Sources */,
 				E2FD05F71F1C708500AB3015 /* Scales.swift in Sources */,
 				E2FD05EF1F1C6B6600AB3015 /* ET_Intervals.swift in Sources */,
+				E223B02E1F2707B700C6ED52 /* LevelMenu.swift in Sources */,
 				E2FD05F31F1C6DE100AB3015 /* ET_Scales.swift in Sources */,
 				E2FD05E21F1C5B4000AB3015 /* EarTrainingSets.swift in Sources */,
 				E2FD05E31F1C5B4000AB3015 /* Notes.swift in Sources */,
 				E2FD05F11F1C6D2100AB3015 /* ET_Chords.swift in Sources */,
+				E2D6ED731F281C190015864E /* EarTrainingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

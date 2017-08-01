@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HUP-xJ-i7G">
     <device id="ipad10_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main Menu-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Syllabus_Prep" customModuleProvider="target" sceneMemberID="viewController">
@@ -26,7 +26,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Level I"/>
                                 <connections>
-                                    <action selector="playLevelOne:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FmT-aG-LMT"/>
+                                    <segue destination="yGK-rE-HrO" kind="show" identifier="segueLevelOne" id="iKu-03-EzM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="es8-4q-2k4">
@@ -34,7 +34,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Level II"/>
                                 <connections>
-                                    <action selector="playLevelTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DG2-Yt-QLr"/>
+                                    <segue destination="yGK-rE-HrO" kind="show" identifier="segueLevelTwo" id="bce-7F-DIu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zmf-KD-Wen">
@@ -42,7 +42,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Level III"/>
                                 <connections>
-                                    <action selector="playLevelThree:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L2B-Vo-Fyw"/>
+                                    <segue destination="yGK-rE-HrO" kind="show" identifier="segueLevelThree" id="jMl-1S-Tv1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yW2-mR-4rY">
@@ -50,7 +50,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Level IV"/>
                                 <connections>
-                                    <action selector="playLevelFour:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DnA-a4-nGM"/>
+                                    <segue destination="yGK-rE-HrO" kind="show" identifier="segueLevelFour" id="ik6-ny-fh3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJr-TO-GqU">
@@ -58,7 +58,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Level VI"/>
                                 <connections>
-                                    <action selector="playLevelSix:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F1O-x1-fSl"/>
+                                    <segue destination="yGK-rE-HrO" kind="show" identifier="segueLevelSix" id="Pnc-sx-Eei"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2sJ-Yu-QgO">
@@ -66,7 +66,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Level VII"/>
                                 <connections>
-                                    <action selector="playLevelSeven:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xu1-nS-TeD"/>
+                                    <segue destination="yGK-rE-HrO" kind="show" identifier="segueLevelSeven" id="Mzo-wg-Z3E"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NDn-x9-3qc">
@@ -74,7 +74,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Level VIII"/>
                                 <connections>
-                                    <action selector="playLevelEight:" destination="BYZ-38-t0r" eventType="touchUpInside" id="98i-SY-om1"/>
+                                    <segue destination="yGK-rE-HrO" kind="show" identifier="segueLevelEight" id="aj6-Yy-EaD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IlW-24-Oa0">
@@ -82,7 +82,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Level IX"/>
                                 <connections>
-                                    <action selector="playLevelNine:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hbo-DM-c2k"/>
+                                    <segue destination="yGK-rE-HrO" kind="show" identifier="segueLevelNine" id="3Iz-6Z-wUi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Qm-yT-fCM">
@@ -90,7 +90,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Level X"/>
                                 <connections>
-                                    <action selector="playLevelTen:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kRC-Rc-jcP"/>
+                                    <segue destination="yGK-rE-HrO" kind="show" identifier="segueLevelTen" id="9xE-eL-rrb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eJ-Ab-ls4">
@@ -98,16 +98,168 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Level V"/>
                                 <connections>
-                                    <action selector="playLevelFive:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hsR-cz-Lwk"/>
+                                    <segue destination="yGK-rE-HrO" kind="show" identifier="segueLevelFive" id="FyJ-t5-gbS"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Main Menu" id="NzR-IT-eUi"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="86.71875" y="138.79941434846265"/>
+            <point key="canvasLocation" x="838.84892086330944" y="138.66906474820144"/>
+        </scene>
+        <!--Level Menu-->
+        <scene sceneID="kbx-Pj-PWk">
+            <objects>
+                <viewController id="yGK-rE-HrO" customClass="LevelMenu" customModule="Syllabus_Prep" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZAg-ci-GYI"/>
+                        <viewControllerLayoutGuide type="bottom" id="aGf-tc-TOG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="G9p-8V-Xlz">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z7q-7s-ksy">
+                                <rect key="frame" x="376" y="230" width="82" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Ear Training"/>
+                                <connections>
+                                    <segue destination="tMq-pb-peb" kind="show" identifier="segueEarTraining" id="5Gq-3K-0fP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qjg-Ij-UX5">
+                                <rect key="frame" x="394" y="620" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FcJ-SX-Rau">
+                                <rect key="frame" x="394" y="424" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DWW-vS-vMF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1629" y="139"/>
+        </scene>
+        <!--Ear Training View-->
+        <scene sceneID="EzE-rF-mRt">
+            <objects>
+                <viewController id="tMq-pb-peb" customClass="EarTrainingView" customModule="Syllabus_Prep" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4CH-f8-8qg"/>
+                        <viewControllerLayoutGuide type="bottom" id="h2h-2y-Bx0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="G10-Ma-fEO">
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jmM-uX-nIA">
+                                <rect key="frame" x="233" y="64" width="369" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                    <segment title="Third"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1GA-zc-2tz">
+                                <rect key="frame" x="402" y="224" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="playTestQuestion:" destination="tMq-pb-peb" eventType="touchUpInside" id="Tgt-cr-LsN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STX-Rc-XFc">
+                                <rect key="frame" x="393" y="839" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitAnswer:" destination="tMq-pb-peb" eventType="touchUpInside" id="1d0-Nj-XIG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lws-Om-TR0">
+                                <rect key="frame" x="226" y="538" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="updateAnswerSubmitted:" destination="tMq-pb-peb" eventType="touchUpInside" id="cF3-SO-1GM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eS4-ml-X6e">
+                                <rect key="frame" x="549" y="538" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="updateAnswerSubmitted:" destination="tMq-pb-peb" eventType="touchUpInside" id="Okj-dj-lbq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qkI-Ys-QrO">
+                                <rect key="frame" x="549" y="698" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="updateAnswerSubmitted:" destination="tMq-pb-peb" eventType="touchUpInside" id="RuB-oC-7f5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eq6-aZ-rsR">
+                                <rect key="frame" x="226" y="698" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="updateAnswerSubmitted:" destination="tMq-pb-peb" eventType="touchUpInside" id="2MN-Dk-HaV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="answerChoice1" destination="Lws-Om-TR0" id="EMp-yp-flY"/>
+                        <outlet property="answerChoice2" destination="eS4-ml-X6e" id="rCg-dY-jnq"/>
+                        <outlet property="answerChoice3" destination="eq6-aZ-rsR" id="hpo-ta-6tU"/>
+                        <outlet property="answerChoice4" destination="qkI-Ys-QrO" id="4dR-gl-t14"/>
+                        <outlet property="typeSelection" destination="jmM-uX-nIA" id="2Ee-0k-XcH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TNN-3c-0Pr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2349.6402877697842" y="138.66906474820144"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zaR-kq-0Nd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HUP-xJ-i7G" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eFV-Rb-yzF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="IEQ-Q1-6Iv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7av-Gb-hUR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="86.330935251798564" y="138.66906474820144"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="jMl-1S-Tv1"/>
+    </inferredMetricsTieBreakers>
 </document>

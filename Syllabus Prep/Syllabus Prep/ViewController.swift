@@ -9,15 +9,41 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var buttonLevel1: UIButton!
+    @IBOutlet weak var buttonLevel2: UIButton!
+    @IBOutlet weak var buttonLevel3: UIButton!
+    @IBOutlet weak var buttonLevel4: UIButton!
+    @IBOutlet weak var buttonLevel5: UIButton!
+    @IBOutlet weak var buttonLevel6: UIButton!
+    @IBOutlet weak var buttonLevel7: UIButton!
+    @IBOutlet weak var buttonLevel8: UIButton!
+    @IBOutlet weak var buttonLevel9: UIButton!
+    @IBOutlet weak var buttonLevel10: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        setButtonBorderColor(buttonLayer: buttonLevel1.layer)
+        setButtonBorderColor(buttonLayer: buttonLevel2.layer)
+        setButtonBorderColor(buttonLayer: buttonLevel3.layer)
+        setButtonBorderColor(buttonLayer: buttonLevel4.layer)
+        setButtonBorderColor(buttonLayer: buttonLevel5.layer)
+        setButtonBorderColor(buttonLayer: buttonLevel6.layer)
+        setButtonBorderColor(buttonLayer: buttonLevel7.layer)
+        setButtonBorderColor(buttonLayer: buttonLevel8.layer)
+        setButtonBorderColor(buttonLayer: buttonLevel9.layer)
+        setButtonBorderColor(buttonLayer: buttonLevel10.layer)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setButtonBorderColor(buttonLayer:CALayer) {
+        buttonLayer.cornerRadius = 2
+        buttonLayer.borderWidth = 1
+        buttonLayer.borderColor = UIColor.black.cgColor
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

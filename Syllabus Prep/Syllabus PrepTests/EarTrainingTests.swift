@@ -99,6 +99,53 @@ class EarTrainingTests: XCTestCase {
         }
     }
     
+    // Tests all valid and invalid type set values when passed to the
+    //  EarTraining class function getEarTrainingPlaySet().
+    func testGetEarTrainingPlaySetAllLevels() {
+        let numLevels = 10
+        var testET: [EarTraining] = Array(repeating: EarTraining(level: 0), count: numLevels)
+        var validChoice: [[Int]] = Array(repeating: [], count: numLevels)
+        var invalidChoice: [[Int]] = Array(repeating: [], count: numLevels)
+        
+        for i in 0...9 {
+            testET[i] = EarTraining(level: i+1)
+        }
+        
+        // Syllabus levels 1 to 10
+        validChoice[0] = [1]    // Chords only
+        validChoice[1] = [0,1]  // Intervals and chords
+        validChoice[2] = [0,2]
+        validChoice[3] = [0,2]
+        validChoice[4] = [0,2]
+        validChoice[5] = [0,2]
+        validChoice[6] = [1]    // Chords only
+        validChoice[7] = [0]    // Intervals only
+        validChoice[8] = [0]
+        validChoice[9] = [0]
+        
+        invalidChoice[0] = [-1, 0, 2, 100]
+        invalidChoice[1] = [-1, 2, 100]
+        invalidChoice[2] = [-1, 1, 100]
+        invalidChoice[3] = [-1, 1, 100]
+        invalidChoice[4] = [-1, 1, 100]
+        invalidChoice[5] = [-1, 1, 100]
+        invalidChoice[6] = [-1, 0, 2, 100]
+        invalidChoice[7] = [-1, 1, 2, 100]
+        invalidChoice[8] = [-1, 1, 2, 100]
+        invalidChoice[9] = [-1, 1, 2, 100]
+        
+        for i in 0...9 {
+            for choice in validChoice[i] {
+                XCTAssert(!testET[i].getEarTrainingPlaySet(ETTValue: choice).isEmpty(), "Valid choice of " + String(choice) + " returned empty type.")
+            }
+            
+            
+            for choice in invalidChoice[i] {
+                XCTAssert(testET[i].getEarTrainingPlaySet(ETTValue: choice).isEmpty(), "Invalid choice of " + String(choice) + " returned nonempty type.")
+            }
+        }
+    }
+    
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.

@@ -200,7 +200,7 @@
                                 <rect key="frame" x="60" y="214" width="648" height="735"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z7q-7s-ksy">
-                                        <rect key="frame" x="0.0" y="0.0" width="648" height="178.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="648" height="178"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
                                         <state key="normal" title="Ear Training">
@@ -211,7 +211,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FcJ-SX-Rau">
-                                        <rect key="frame" x="0.0" y="278.5" width="648" height="178"/>
+                                        <rect key="frame" x="0.0" y="278" width="648" height="179"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
                                         <state key="normal" title="Rhythm Training*">
@@ -219,7 +219,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qjg-Ij-UX5">
-                                        <rect key="frame" x="0.0" y="556.5" width="648" height="178.5"/>
+                                        <rect key="frame" x="0.0" y="557" width="648" height="178"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
                                         <state key="normal" title="Sight Reading*">
@@ -254,85 +254,132 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jmM-uX-nIA">
-                                <rect key="frame" x="233" y="64" width="369" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                    <segment title="Third"/>
-                                </segments>
-                            </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1GA-zc-2tz">
-                                <rect key="frame" x="402" y="224" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Play"/>
-                                <connections>
-                                    <action selector="playTestQuestion:" destination="tMq-pb-peb" eventType="touchUpInside" id="Tgt-cr-LsN"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STX-Rc-XFc">
-                                <rect key="frame" x="393" y="839" width="49" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STX-Rc-XFc">
+                                <rect key="frame" x="220" y="894" width="328" height="30"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="submitAnswer:" destination="tMq-pb-peb" eventType="touchUpInside" id="1d0-Nj-XIG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lws-Om-TR0">
-                                <rect key="frame" x="226" y="538" width="60" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="updateAnswerSubmitted:" destination="tMq-pb-peb" eventType="touchUpInside" id="cF3-SO-1GM"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eS4-ml-X6e">
-                                <rect key="frame" x="549" y="538" width="60" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="updateAnswerSubmitted:" destination="tMq-pb-peb" eventType="touchUpInside" id="Okj-dj-lbq"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qkI-Ys-QrO">
-                                <rect key="frame" x="549" y="698" width="60" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="updateAnswerSubmitted:" destination="tMq-pb-peb" eventType="touchUpInside" id="RuB-oC-7f5"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eq6-aZ-rsR">
-                                <rect key="frame" x="226" y="698" width="60" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="updateAnswerSubmitted:" destination="tMq-pb-peb" eventType="touchUpInside" id="2MN-Dk-HaV"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rwY-dS-2lf">
+                                <rect key="frame" x="70" y="99" width="628" height="156"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your study preference" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="195-qF-r5t">
+                                        <rect key="frame" x="194" y="0.0" width="240" height="32"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jmM-uX-nIA">
+                                        <rect key="frame" x="254" y="62" width="121" height="33"/>
+                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <segments>
+                                            <segment title="First"/>
+                                            <segment title="Second"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.81509107351303101" green="0.64928305149078369" blue="0.44561457633972168" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="enableBottomView:" destination="tMq-pb-peb" eventType="valueChanged" id="bX4-oa-f2N"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1GA-zc-2tz">
+                                        <rect key="frame" x="299" y="124" width="30" height="32"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Play"/>
+                                        <connections>
+                                            <action selector="playTestQuestion:" destination="tMq-pb-peb" eventType="touchUpInside" id="Tgt-cr-LsN"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="UR6-5h-A9Q">
+                                <rect key="frame" x="70" y="455" width="628" height="239"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="RWF-x8-loW">
+                                        <rect key="frame" x="0.0" y="0.0" width="264" height="239"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lws-Om-TR0">
+                                                <rect key="frame" x="0.0" y="0.0" width="264" height="100"/>
+                                                <color key="backgroundColor" red="0.81509107349999999" green="0.64928305149999999" blue="0.44561457630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="updateAnswerSubmitted:" destination="tMq-pb-peb" eventType="touchUpInside" id="cF3-SO-1GM"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eq6-aZ-rsR">
+                                                <rect key="frame" x="0.0" y="140" width="264" height="99"/>
+                                                <color key="backgroundColor" red="0.81509107349999999" green="0.64928305149999999" blue="0.44561457630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="updateAnswerSubmitted:" destination="tMq-pb-peb" eventType="touchUpInside" id="2MN-Dk-HaV"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="GsQ-Uc-QF3">
+                                        <rect key="frame" x="364" y="0.0" width="264" height="239"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qkI-Ys-QrO">
+                                                <rect key="frame" x="0.0" y="0.0" width="264" height="100"/>
+                                                <color key="backgroundColor" red="0.81509107349999999" green="0.64928305149999999" blue="0.44561457630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="updateAnswerSubmitted:" destination="tMq-pb-peb" eventType="touchUpInside" id="RuB-oC-7f5"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eS4-ml-X6e">
+                                                <rect key="frame" x="0.0" y="140" width="264" height="99"/>
+                                                <color key="backgroundColor" red="0.81509107349999999" green="0.64928305149999999" blue="0.44561457630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="updateAnswerSubmitted:" destination="tMq-pb-peb" eventType="touchUpInside" id="Okj-dj-lbq"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.99762505290000003" green="0.94694143529999997" blue="0.83522003889999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="rwY-dS-2lf" firstAttribute="leading" secondItem="G10-Ma-fEO" secondAttribute="leadingMargin" constant="50" id="0rn-gz-K5x"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rwY-dS-2lf" secondAttribute="trailing" constant="50" id="6Uf-0z-G8Y"/>
+                            <constraint firstItem="STX-Rc-XFc" firstAttribute="leading" secondItem="G10-Ma-fEO" secondAttribute="leadingMargin" constant="200" id="Glg-ft-se8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UR6-5h-A9Q" secondAttribute="trailing" constant="50" id="K5e-FJ-fmI"/>
+                            <constraint firstItem="UR6-5h-A9Q" firstAttribute="top" secondItem="rwY-dS-2lf" secondAttribute="bottom" constant="200" id="LlN-qR-uhN"/>
+                            <constraint firstItem="rwY-dS-2lf" firstAttribute="top" secondItem="4CH-f8-8qg" secondAttribute="bottom" constant="35" id="S8y-fW-zJW"/>
+                            <constraint firstItem="STX-Rc-XFc" firstAttribute="top" secondItem="UR6-5h-A9Q" secondAttribute="bottom" constant="200" id="dNm-nj-KbI"/>
+                            <constraint firstItem="h2h-2y-Bx0" firstAttribute="top" secondItem="STX-Rc-XFc" secondAttribute="bottom" constant="100" id="h04-Bh-RZ2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="STX-Rc-XFc" secondAttribute="trailing" constant="200" id="iI2-wa-L4V"/>
+                            <constraint firstItem="UR6-5h-A9Q" firstAttribute="leading" secondItem="G10-Ma-fEO" secondAttribute="leadingMargin" constant="50" id="px6-BD-dix"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="answerChoice1" destination="Lws-Om-TR0" id="EMp-yp-flY"/>
                         <outlet property="answerChoice2" destination="eS4-ml-X6e" id="rCg-dY-jnq"/>
                         <outlet property="answerChoice3" destination="eq6-aZ-rsR" id="hpo-ta-6tU"/>
                         <outlet property="answerChoice4" destination="qkI-Ys-QrO" id="4dR-gl-t14"/>
+                        <outlet property="playButton" destination="1GA-zc-2tz" id="sT2-yg-Ac8"/>
+                        <outlet property="submitButton" destination="STX-Rc-XFc" id="xi8-lB-RdC"/>
                         <outlet property="typeSelection" destination="jmM-uX-nIA" id="2Ee-0k-XcH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TNN-3c-0Pr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2349.6402877697842" y="138.66906474820144"/>
+            <point key="canvasLocation" x="2349.21875" y="138.28125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zaR-kq-0Nd">

@@ -14,7 +14,7 @@ import Foundation
 //  a random Interval tuple.
 
 class ET_Intervals : EAR_TRAINING_TYPE {
-    var intervalSet : [(String, Int8)]?
+    var intervalSet : [(String, Int8)]!
     
     override init() {
         super.init()
@@ -35,5 +35,9 @@ class ET_Intervals : EAR_TRAINING_TYPE {
 	// Returns a random Int value from a Interval tuple.
     override func getInterval() -> Int8 {
         return self.intervalSet![RandNum().getRandNum(mod: self.intervalSet!.count)].1
+    }
+    
+    override func getInterval() -> setTuple  {
+        return self.intervalSet![RandNum().getRandNum(mod: self.intervalSet!.count)]
     }
 }

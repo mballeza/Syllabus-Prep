@@ -14,6 +14,7 @@ class EarTrainingView: UIViewController {
     var viewTitle = ""              // UIView title
     var level = 0                   // Current Syllabus level
     var answerSubmitted = ""        // String from answer button title
+    var correctAnswer = ""
     var segmentSelected = 0
     
     // MARK: - Outlets
@@ -150,6 +151,9 @@ class EarTrainingView: UIViewController {
     @IBAction func playTestQuestion(_ sender: UIButton) {
         var typeChoice:Int!
         var playSet: EAR_TRAINING_TYPE!
+        var playSetSelected: setTuple!
+        var playSetSelectedArray: setTupleArray!
+        var correctAnswerToUpdate: String!
         
         if typeSelection.selectedSegmentIndex < 2 {
             typeChoice = getEarTrainingValueFromSegmentTitle(title: typeSelection.titleForSegment(at: typeSelection.selectedSegmentIndex)!)
@@ -161,24 +165,46 @@ class EarTrainingView: UIViewController {
                 print("MIDI sampler cannot play")
                 return
             }
+            
         } else {
             playSet = earTraining.getRandomEarTrainingPlaySet()
         }
         
-        earTraining.playTestQuestion(sampler: self.sampler, choice: typeChoice, playSet: playSet)
+        switch playSet.name {   // Had to use String name instead of ETT value...
+        case "interval":
+            playSetSelected = playSet.getInterval()
+            sampler.playInterval(interval: playSetSelected!.1)
+            correctAnswerToUpdate = playSetSelected!.0
+        case "chord":
+            playSetSelectedArray = playSet.getSet()
+            sampler.playChord(chord: playSetSelectedArray!.1)
+            correctAnswerToUpdate = playSetSelectedArray!.0
+        case "scale":
+            playSetSelectedArray = playSet.getSet()
+            sampler.playScale(scale: playSetSelectedArray!.1)
+            correctAnswerToUpdate = playSetSelectedArray!.0
+        default:
+            print("Invalid name")    // Shouldn't reach default case
+            return
+        }
+        
+        //earTraining.playTestQuestion(sampler: self.sampler, choice: typeChoice, playSet: playSet)
         
         //setAllAnswerButtonColor()
         enableAllAnswerButtons()
         
+        // TODO: Update answer buttons with correct answer + dummy answers
+        correctAnswer = correctAnswerToUpdate   // TODO: Erase later, put in update answer func
+
         answerChoice1.setTitle("abc1", for: UIControlState.normal)
         answerChoice2.setTitle("abc2", for: UIControlState.normal)
-        answerChoice3.setTitle("abc3", for: UIControlState.normal)
+        answerChoice3.setTitle(correctAnswerToUpdate, for: UIControlState.normal)
         answerChoice4.setTitle("abc4", for: UIControlState.normal)
     }
     
     @IBAction func submitAnswer(_ sender: UIButton) {
         var alertMessage = ""
-        if answerSubmitted == "abc3" {
+        if answerSubmitted == correctAnswer {
             alertMessage = "Correct!"
         } else {
             alertMessage = "Incorrect"

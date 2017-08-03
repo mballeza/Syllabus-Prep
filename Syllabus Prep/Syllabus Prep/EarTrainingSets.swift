@@ -6,6 +6,9 @@
 //  Copyright © 2017 Matthew Balleza. All rights reserved.
 //
 
+typealias setTuple = (String, Int8)
+typealias setTupleArray = (String, [Int8])
+
 struct EAR_TRAINING_TYPE_VALUES{
 	let interval = 0
 	let chord = 1
@@ -104,6 +107,13 @@ class EAR_TRAINING_TYPE {
     }
     func getSet() -> [Int8] {
         return []
+    }
+    
+    func getInterval() -> setTuple {
+        return ("", 0)
+    }
+    func getSet() -> setTupleArray {
+        return ("", [])
     }
 }
 

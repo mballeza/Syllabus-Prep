@@ -102,7 +102,7 @@ class EarTraining: SyllabusLevels {
         return isValid
     }
     */
-    
+    /*
     func playTestQuestion(sampler: MIDISampler, choice: Int, playSet: EAR_TRAINING_TYPE) {
         do {
             try sampler.playSet(randSetNum: choice, playSet: playSet)
@@ -112,7 +112,7 @@ class EarTraining: SyllabusLevels {
             print ("could not play set")
         }
     }
-    
+    */
     func getEarTrainingPlaySet(ETTValue: Int) -> EAR_TRAINING_TYPE {
         var earTrainingPlaySet: EAR_TRAINING_TYPE!
         

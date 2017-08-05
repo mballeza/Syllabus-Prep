@@ -16,8 +16,8 @@ import Foundation
 //  root and fifth.
 
 struct Chords {
-    let minortriad : (String, [Int8]) = ("Minor Triad", [3, 7])
-    let majortriad : (String, [Int8]) = ("Major Triad", [4, 7])
-    let diminishedtriad : (String, [Int8]) =  ("Diminished Triad", [3, 6])
-    let augmentedtriad : (String, [Int8]) = ("Augmented Triad", [4, 8])
+    let minortriad : (String, [Int8]) = (CHORD_NAMES.minortriad, [3, 7])
+    let majortriad : (String, [Int8]) = (CHORD_NAMES.majortriad, [4, 7])
+    let diminishedtriad : (String, [Int8]) =  (CHORD_NAMES.diminishedtriad, [3, 6])
+    let augmentedtriad : (String, [Int8]) = (CHORD_NAMES.augmentedtriad, [4, 8])
 }

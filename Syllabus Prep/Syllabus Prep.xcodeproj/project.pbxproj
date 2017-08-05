@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E223B02E1F2707B700C6ED52 /* LevelMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E223B02D1F2707B700C6ED52 /* LevelMenu.swift */; };
+		E269DCC11F33EE5900D37F35 /* Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = E269DCC01F33EE5900D37F35 /* Names.swift */; };
+		E269DCC31F33F55E00D37F35 /* RandAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E269DCC21F33F55E00D37F35 /* RandAnswer.swift */; };
 		E28610811F3146400010A68F /* UIViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28610801F3146400010A68F /* UIViewControllerTests.swift */; };
 		E2A238A81F1D6CCC008F5DD6 /* RandNum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A238A71F1D6CCC008F5DD6 /* RandNum.swift */; };
 		E2BB4E591F2D4943008A4AB9 /* EarTrainingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2BB4E581F2D4943008A4AB9 /* EarTrainingTests.swift */; };
@@ -44,6 +46,8 @@
 
 /* Begin PBXFileReference section */
 		E223B02D1F2707B700C6ED52 /* LevelMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelMenu.swift; sourceTree = "<group>"; };
+		E269DCC01F33EE5900D37F35 /* Names.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Names.swift; sourceTree = "<group>"; };
+		E269DCC21F33F55E00D37F35 /* RandAnswer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandAnswer.swift; sourceTree = "<group>"; };
 		E28610801F3146400010A68F /* UIViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerTests.swift; sourceTree = "<group>"; };
 		E2A238A71F1D6CCC008F5DD6 /* RandNum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandNum.swift; sourceTree = "<group>"; };
 		E2BB4E581F2D4943008A4AB9 /* EarTrainingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarTrainingTests.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				E2A238A71F1D6CCC008F5DD6 /* RandNum.swift */,
+				E269DCC21F33F55E00D37F35 /* RandAnswer.swift */,
 			);
 			name = "Random Number Generator";
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 				E2FD05EC1F1C670A00AB3015 /* Intervals.swift */,
 				E2FD05F41F1C6F0F00AB3015 /* Chords.swift */,
 				E2FD05F61F1C708500AB3015 /* Scales.swift */,
+				E269DCC01F33EE5900D37F35 /* Names.swift */,
 			);
 			name = Theory;
 			sourceTree = "<group>";
@@ -310,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2FD05DB1F1C2D6F00AB3015 /* MIDISampler.swift in Sources */,
+				E269DCC11F33EE5900D37F35 /* Names.swift in Sources */,
 				E2C3C8BA1F12E37C0020F5D6 /* ViewController.swift in Sources */,
 				E2FD05F51F1C6F0F00AB3015 /* Chords.swift in Sources */,
 				E2A238A81F1D6CCC008F5DD6 /* RandNum.swift in Sources */,
@@ -318,6 +325,7 @@
 				E2FD05E51F1C5B4000AB3015 /* Types.swift in Sources */,
 				E2FD05E41F1C5B4000AB3015 /* SyllabusLevels.swift in Sources */,
 				E2FD05F71F1C708500AB3015 /* Scales.swift in Sources */,
+				E269DCC31F33F55E00D37F35 /* RandAnswer.swift in Sources */,
 				E2FD05EF1F1C6B6600AB3015 /* ET_Intervals.swift in Sources */,
 				E223B02E1F2707B700C6ED52 /* LevelMenu.swift in Sources */,
 				E2FD05F31F1C6DE100AB3015 /* ET_Scales.swift in Sources */,

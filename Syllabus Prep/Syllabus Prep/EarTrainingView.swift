@@ -130,6 +130,31 @@ class EarTrainingView: UIViewController {
         return ETTValue
     }
     
+    func updateAnswers(correctAnswer: String, answerType: String) {
+        var answersArray:[String] = Array(repeating: "", count: 4)
+        let randomAnswers = RandAnswer()
+        
+        answersArray[0] = correctAnswer
+        
+        repeat {
+            answersArray[1] = randomAnswers.getRandAnswerSameType(type: answerType)
+            repeat {
+                answersArray[2] = randomAnswers.getRandAnswerSameType(type: answerType)
+            } while answersArray[1] == answersArray[2]
+        } while answersArray[0] == answersArray[1]
+        
+        answersArray[3] = randomAnswers.getRandAnswerFakeType(type: answerType)
+        
+        let newAnswers = randomAnswers.rotateAnswers(answers: answersArray)
+        
+        self.correctAnswer = correctAnswer   // TODO: Erase later, put in update answer func
+        
+        answerChoice1.setTitle(newAnswers[0], for: UIControlState.normal)
+        answerChoice2.setTitle(newAnswers[1], for: UIControlState.normal)
+        answerChoice3.setTitle(newAnswers[2], for: UIControlState.normal)
+        answerChoice4.setTitle(newAnswers[3], for: UIControlState.normal)
+    }
+    
     // MARK: - Actions
     
     @IBAction func enableBottomView(_ sender: UISegmentedControl) {
@@ -194,12 +219,7 @@ class EarTrainingView: UIViewController {
         enableAllAnswerButtons()
         
         // TODO: Update answer buttons with correct answer + dummy answers
-        correctAnswer = correctAnswerToUpdate   // TODO: Erase later, put in update answer func
-
-        answerChoice1.setTitle("abc1", for: UIControlState.normal)
-        answerChoice2.setTitle("abc2", for: UIControlState.normal)
-        answerChoice3.setTitle(correctAnswerToUpdate, for: UIControlState.normal)
-        answerChoice4.setTitle("abc4", for: UIControlState.normal)
+        updateAnswers(correctAnswer: correctAnswerToUpdate, answerType: playSet.name)
     }
     
     @IBAction func submitAnswer(_ sender: UIButton) {

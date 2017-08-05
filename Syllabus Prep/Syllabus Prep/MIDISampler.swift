@@ -86,7 +86,7 @@ class MIDISampler {
         
         self.sampler.sendProgramChange(gmpatch, bankMSB: melodicBank, bankLSB: defaultBankLSB, onChannel: channel)
     }
-    
+    /*
     func playSet(randSetNum : Int, playSet : EAR_TRAINING_TYPE) throws {
         switch randSetNum {
         case ETT_VALUES.interval:
@@ -99,6 +99,7 @@ class MIDISampler {
             throw MIDIErrors.invalidETTValue
         }
     }
+    */
     
     func playInterval(interval: Int8) {
         loadPatch(gmBrightAcousticPiano)

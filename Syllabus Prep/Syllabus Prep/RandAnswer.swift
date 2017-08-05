@@ -13,11 +13,11 @@ class RandAnswer: RandNum {
         var answerToReturn:String!
         
         switch type {
-        case "interval":
+        case ETT_NAMES.interval:
             answerToReturn = INTERVAL_NAMES.all[getRandNum(mod: INTERVAL_NAMES.all.count)]
-        case "chord":
+        case ETT_NAMES.chord:
             answerToReturn = CHORD_NAMES.all[getRandNum(mod: CHORD_NAMES.all.count)]
-        case "scale":
+        case ETT_NAMES.scale:
             answerToReturn = SCALE_NAMES.all[getRandNum(mod: SCALE_NAMES.all.count)]
         default:
             answerToReturn = "Default"
@@ -30,11 +30,11 @@ class RandAnswer: RandNum {
         var answerToReturn:String!
         
         switch type {
-        case "interval":
+        case ETT_NAMES.interval:
             answerToReturn = INTERVAL_FAKE_NAMES.all[getRandNum(mod: INTERVAL_FAKE_NAMES.all.count)]
-        case "chord":
+        case ETT_NAMES.chord:
             answerToReturn = CHORD_FAKE_NAMES.all[getRandNum(mod: CHORD_FAKE_NAMES.all.count)]
-        case "scale":
+        case ETT_NAMES.scale:
             answerToReturn = SCALE_FAKE_NAMES.all[getRandNum(mod: SCALE_FAKE_NAMES.all.count)]
         default:
             answerToReturn = "Default"

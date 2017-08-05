@@ -14,7 +14,7 @@ import Foundation
 //  a random chord tuple.
 
 class ET_Chords : EAR_TRAINING_TYPE {
-    var chords : [(String, [Int8])]!
+    var chords : [setTupleArray]!
     
     override init() {
         super.init()
@@ -22,7 +22,7 @@ class ET_Chords : EAR_TRAINING_TYPE {
     }
     
     init(set: [(String, [Int8])]) {
-        super.init(name: "chord")
+        super.init(name: ETT_NAMES.chord)
         chords = set
     }
     
@@ -34,7 +34,7 @@ class ET_Chords : EAR_TRAINING_TYPE {
     
 	// Returns a random array from a Chord tuple.
     override func getSet() -> [Int8] {
-        return self.chords![RandNum().getRandNum(mod: self.chords!.count)].1
+        return self.chords![RandNum().getRandNum(mod: self.chords!.count)].valueset
     }
     
     override func getSet() -> setTupleArray {

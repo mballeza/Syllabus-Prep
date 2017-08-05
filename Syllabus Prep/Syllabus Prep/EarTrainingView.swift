@@ -138,16 +138,17 @@ class EarTrainingView: UIViewController {
         
         repeat {
             answersArray[1] = randomAnswers.getRandAnswerSameType(type: answerType)
-            repeat {
-                answersArray[2] = randomAnswers.getRandAnswerSameType(type: answerType)
-            } while answersArray[1] == answersArray[2]
         } while answersArray[0] == answersArray[1]
+        
+        repeat {
+            answersArray[2] = randomAnswers.getRandAnswerSameType(type: answerType)
+        } while answersArray[1] == answersArray[2] && answersArray[0] == answersArray[2]
         
         answersArray[3] = randomAnswers.getRandAnswerFakeType(type: answerType)
         
         let newAnswers = randomAnswers.rotateAnswers(answers: answersArray)
         
-        self.correctAnswer = correctAnswer   // TODO: Erase later, put in update answer func
+        self.correctAnswer = correctAnswer
         
         answerChoice1.setTitle(newAnswers[0], for: UIControlState.normal)
         answerChoice2.setTitle(newAnswers[1], for: UIControlState.normal)
@@ -196,18 +197,18 @@ class EarTrainingView: UIViewController {
         }
         
         switch playSet.name {   // Had to use String name instead of ETT value...
-        case "interval":
+        case ETT_NAMES.interval:
             playSetSelected = playSet.getInterval()
-            sampler.playInterval(interval: playSetSelected!.1)
-            correctAnswerToUpdate = playSetSelected!.0
-        case "chord":
+            sampler.playInterval(interval: playSetSelected!.value)
+            correctAnswerToUpdate = playSetSelected!.name
+        case ETT_NAMES.chord:
             playSetSelectedArray = playSet.getSet()
-            sampler.playChord(chord: playSetSelectedArray!.1)
-            correctAnswerToUpdate = playSetSelectedArray!.0
-        case "scale":
+            sampler.playChord(chord: playSetSelectedArray!.valueset)
+            correctAnswerToUpdate = playSetSelectedArray!.name
+        case ETT_NAMES.scale:
             playSetSelectedArray = playSet.getSet()
-            sampler.playScale(scale: playSetSelectedArray!.1)
-            correctAnswerToUpdate = playSetSelectedArray!.0
+            sampler.playScale(scale: playSetSelectedArray!.valueset)
+            correctAnswerToUpdate = playSetSelectedArray!.name
         default:
             print("Invalid name")    // Shouldn't reach default case
             return
@@ -218,7 +219,6 @@ class EarTrainingView: UIViewController {
         //setAllAnswerButtonColor()
         enableAllAnswerButtons()
         
-        // TODO: Update answer buttons with correct answer + dummy answers
         updateAnswers(correctAnswer: correctAnswerToUpdate, answerType: playSet.name)
     }
     

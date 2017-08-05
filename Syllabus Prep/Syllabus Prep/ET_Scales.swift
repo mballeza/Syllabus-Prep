@@ -14,7 +14,7 @@ import Foundation
 //  a random scale tuple.
 
 class ET_Scales : EAR_TRAINING_TYPE {
-    var scales : [(String, [Int8])]!
+    var scales : [setTupleArray]!
     
     override init() {
         super.init()
@@ -22,7 +22,7 @@ class ET_Scales : EAR_TRAINING_TYPE {
     }
     
     init(set:  [(String, [Int8])]) {
-        super.init(name: "scale")
+        super.init(name: ETT_NAMES.scale)
         scales = set
     }
     
@@ -34,7 +34,7 @@ class ET_Scales : EAR_TRAINING_TYPE {
     
 	// Returns a random array from a Scale tuple.
     override func getSet() -> [Int8] {
-        return self.scales![RandNum().getRandNum(mod: self.scales!.count)].1
+        return self.scales![RandNum().getRandNum(mod: self.scales!.count)].valueset
     }
     
     override func getSet() -> setTupleArray {

@@ -9,8 +9,6 @@
 import Foundation
 import Darwin
 
-//let ETT_NAMES = EAR_TRAINING_TYPE_NAMES()
-let ETT_VALUES = EAR_TRAINING_TYPE_VALUES()
 let EAR_TRAINING_LEVELS = EAR_TRAINING_LEVEL_SETS()
 let NUM_EAR_TRAINING_SETS = 3 		// Only 3: intervals, chords, scales.
 let MAX_LEVEL = 10					// Max syllabus level

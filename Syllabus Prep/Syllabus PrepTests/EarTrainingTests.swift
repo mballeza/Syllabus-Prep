@@ -13,18 +13,18 @@ class EarTrainingTests: XCTestCase {
     var intervals:ET_Intervals!
     var chords:ET_Chords!
     var scales:ET_Scales!
-    let intervalname = "interval"
-    let chordname = "chord"
-    let scalename = "scale"
+    let intervalname = ETT_NAMES.interval
+    let chordname = ETT_NAMES.chord
+    let scalename = ETT_NAMES.scale
     let major2nd = setIntervals.majorsecond
     let minor2nd = setIntervals.minorsecond
     let majortriad = setChords.majortriad
     let minortriad = setChords.minortriad
     let majorscale = setScales.major
     let dorian = setScales.dorian
-    var intervalset:[(String, Int8)]!
-    var chordset:[(String, [Int8])]!
-    var scaleset:[(String, [Int8])]!
+    var intervalset:[setTuple]!
+    var chordset:[setTupleArray]!
+    var scaleset:[setTupleArray]!
     
     override func setUp() {
         super.setUp()
@@ -40,6 +40,12 @@ class EarTrainingTests: XCTestCase {
         intervals = nil
         chords = nil
         scales = nil
+    }
+    
+    func testAll() {
+        self.testEarTrainingNewObjects()
+        self.testEarTrainingLevel()
+        self.testGetEarTrainingPlaySetAllLevels()
     }
     
     // Test for Ear Training Types object creation. Tests for empty and nonempty objects.
@@ -68,19 +74,22 @@ class EarTrainingTests: XCTestCase {
         XCTAssert(chords.name == chordname, "Chord name does not match init")
         XCTAssert(scales.name == scalename, "Interval name does not match init")
         
-        let randInterval = intervals.getInterval()
-        let randChord = chords.getSet()
-        let randScale = scales.getSet()
+        let randInterval:setTuple = intervals.getInterval()
+        let randChord:setTupleArray = chords.getSet()
+        let randScale:setTupleArray = scales.getSet()
         
         // Assert getInterval() and getSet() is contained within the initial set
-        XCTAssert(intervalset[0].1 == randInterval || intervalset[1].1 == randInterval, "Interval set does not match init")
-        XCTAssert(chordset[0].1 == randChord || chordset[1].1 == randChord, "Chord set does not match init")
-        XCTAssert(scaleset[0].1 == randScale || scaleset[1].1 == randScale, "Scale set does not match init")
+        XCTAssert(intervalset[0].value == randInterval.value || intervalset[1].value == randInterval.value, "Interval set does not match init")
+        XCTAssert(chordset[0].valueset == randChord.valueset || chordset[1].valueset == randChord.valueset, "Chord set does not match init")
+        XCTAssert(scaleset[0].valueset == randScale.valueset || scaleset[1].valueset == randScale.valueset, "Scale set does not match init")
     }
     
+    /*  playSet() was removed
     // Test for MIDISampler.playSet(). Tests for valid and invalid EAR_TRAINING_TYPE_VALUES.
     func testMIDIPlaySet() {
         intervals = ET_Intervals(set: intervalset)
+        chords = ET_Chords(set: chordset)
+        scales = ET_Scales(set: scaleset)
         let sampler = MIDISampler()
         
         // Valid value
@@ -89,6 +98,7 @@ class EarTrainingTests: XCTestCase {
         // Invalid value
         XCTAssertThrowsError(try sampler.playSet(randSetNum: -1, playSet: intervals))
     }
+    */
     
     func testEarTrainingLevel() {
         let testET = SyllabusLevels()

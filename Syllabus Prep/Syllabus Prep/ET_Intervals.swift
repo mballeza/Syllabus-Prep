@@ -14,30 +14,13 @@ import Foundation
 //  a random Interval tuple.
 
 class ET_Intervals : EAR_TRAINING_TYPE {
-    var intervalSet : [setTuple]!
-    
     override init() {
         super.init()
-        self.intervalSet = []
     }
     
-    init(set: [(String, Int8)]) {
-        super.init(name: ETT_NAMES.interval)
-        self.intervalSet = set
-    }
-    
-	// Returns true if class was not initialized with a nonempty interval set.
-	// Returns false otherwise.
-    override func isEmpty() -> Bool {
-        return intervalSet!.count == 0
-    }
-    
-	// Returns a random Int value from a Interval tuple.
-    override func getInterval() -> Int8 {
-        return self.intervalSet![RandNum().getRandNum(mod: self.intervalSet!.count)].value
-    }
-    
-    override func getInterval() -> setTuple  {
-        return self.intervalSet![RandNum().getRandNum(mod: self.intervalSet!.count)]
+    init(set: [setTuple]) {
+        super.init()
+        self.name = ETT_NAMES.interval
+        self.noteSets = set
     }
 }

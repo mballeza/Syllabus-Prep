@@ -23,8 +23,8 @@ class EarTrainingTests: XCTestCase {
     let majorscale = setScales.major
     let dorian = setScales.dorian
     var intervalset:[setTuple]!
-    var chordset:[setTupleArray]!
-    var scaleset:[setTupleArray]!
+    var chordset:[setTuple]!
+    var scaleset:[setTuple]!
     
     override func setUp() {
         super.setUp()
@@ -75,13 +75,13 @@ class EarTrainingTests: XCTestCase {
         XCTAssert(scales.name == scalename, "Interval name does not match init")
         
         let randInterval:setTuple = intervals.getInterval()
-        let randChord:setTupleArray = chords.getSet()
-        let randScale:setTupleArray = scales.getSet()
+        let randChord:setTuple = chords.getSet()
+        let randScale:setTuple = scales.getSet()
         
         // Assert getInterval() and getSet() is contained within the initial set
         XCTAssert(intervalset[0].value == randInterval.value || intervalset[1].value == randInterval.value, "Interval set does not match init")
-        XCTAssert(chordset[0].valueset == randChord.valueset || chordset[1].valueset == randChord.valueset, "Chord set does not match init")
-        XCTAssert(scaleset[0].valueset == randScale.valueset || scaleset[1].valueset == randScale.valueset, "Scale set does not match init")
+        XCTAssert(chordset[0].value == randChord.valueset || chordset[1].valueset == randChord.valueset, "Chord set does not match init")
+        XCTAssert(scaleset[0].value == randScale.valueset || scaleset[1].valueset == randScale.valueset, "Scale set does not match init")
     }
     
     /*  playSet() was removed

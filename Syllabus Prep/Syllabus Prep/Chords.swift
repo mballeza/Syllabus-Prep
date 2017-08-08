@@ -16,8 +16,8 @@ import Foundation
 //  root and fifth.
 
 struct Chords {
-    let minortriad : (setTupleArray) = (CHORD_NAMES.minortriad, [3, 7])
-    let majortriad : (setTupleArray) = (CHORD_NAMES.majortriad, [4, 7])
-    let diminishedtriad : (setTupleArray) =  (CHORD_NAMES.diminishedtriad, [3, 6])
-    let augmentedtriad : (setTupleArray) = (CHORD_NAMES.augmentedtriad, [4, 8])
+    let minortriad : (setTuple) = (CHORD_NAMES.minortriad, [3, 7])
+    let majortriad : (setTuple) = (CHORD_NAMES.majortriad, [4, 7])
+    let diminishedtriad : (setTuple) =  (CHORD_NAMES.diminishedtriad, [3, 6])
+    let augmentedtriad : (setTuple) = (CHORD_NAMES.augmentedtriad, [4, 8])
 }

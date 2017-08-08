@@ -86,27 +86,13 @@ class MIDISampler {
         
         self.sampler.sendProgramChange(gmpatch, bankMSB: melodicBank, bankLSB: defaultBankLSB, onChannel: channel)
     }
-    /*
-    func playSet(randSetNum : Int, playSet : EAR_TRAINING_TYPE) throws {
-        switch randSetNum {
-        case ETT_VALUES.interval:
-            playInterval(interval: playSet.getInterval())
-        case ETT_VALUES.chord:
-            playChord(chord: playSet.getSet())
-        case ETT_VALUES.scale:
-            playScale(scale: playSet.getSet())
-        default:
-            throw MIDIErrors.invalidETTValue
-        }
-    }
-    */
     
-    func playInterval(interval: Int8) {
+    func playInterval(interval: [Int8]) {
         loadPatch(gmBrightAcousticPiano)
         
         let startKey = noteset.all[RandNum().getRandNum(mod: noteset.all.count)]
         let firstKey = startKey[RandNum().getRandNum(mod: noteset.notesize)]
-        let secondKey = firstKey + interval
+        let secondKey = firstKey + interval[0]
         
         let playSet : [Int8] = [firstKey, secondKey]
         
@@ -152,6 +138,8 @@ class MIDISampler {
     }
     
     func playScale(scale: [Int8]) {
+        loadPatch(gmBrightAcousticPiano)
+
         var playSet : [Int8] = Array(repeating: 0, count: scale.count + 1)
         
         let startKey = noteset.all[RandNum().getRandNum(mod: noteset.all.count)]

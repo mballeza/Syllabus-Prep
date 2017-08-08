@@ -14,30 +14,13 @@ import Foundation
 //  a random chord tuple.
 
 class ET_Chords : EAR_TRAINING_TYPE {
-    var chords : [setTupleArray]!
-    
     override init() {
         super.init()
-        chords = []
     }
     
-    init(set: [(String, [Int8])]) {
-        super.init(name: ETT_NAMES.chord)
-        chords = set
-    }
-    
-	// Returns true if class was not initialized with a nonempty chord set.
-	// Returns false otherwise.
-    override func isEmpty() -> Bool {
-        return chords!.count == 0
-    }
-    
-	// Returns a random array from a Chord tuple.
-    override func getSet() -> [Int8] {
-        return self.chords![RandNum().getRandNum(mod: self.chords!.count)].valueset
-    }
-    
-    override func getSet() -> setTupleArray {
-        return self.chords![RandNum().getRandNum(mod: self.chords!.count)]
+    init(set: [setTuple]) {
+        super.init()
+        self.name = ETT_NAMES.chord
+        self.noteSets = set
     }
 }

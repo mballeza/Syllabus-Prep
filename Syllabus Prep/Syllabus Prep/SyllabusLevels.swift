@@ -34,8 +34,6 @@ class SyllabusLevels {
 }
 
 class EarTraining: SyllabusLevels {
-//	fileprivate var stringType : String?	// Hack, used in queryType. ETT_NAMES.interval, ETT_NAMES.chord, or ETT_NAMES.scale
-
 	init(level: Int) {
 		super.init()
 
@@ -57,60 +55,7 @@ class EarTraining: SyllabusLevels {
 
 		RandNum().setRandSeed()
 	}
-    
-    /*
-    func giveTestQuestion(sampler: MIDISampler) {
-		var randSetNum : Int
-		var earTrainingPlaySet = EAR_TRAINING_TYPE()
 
-		repeat {
-			randSetNum = RandNum().getRandNum(mod: NUM_EAR_TRAINING_SETS)
-
-			earTrainingPlaySet = getEarTrainingPlaySet(ETTValue: randSetNum)
-		} while earTrainingPlaySet.isEmpty()
-        
-        playTestQuestion(sampler: sampler, choice: randSetNum, playSet: earTrainingPlaySet)
-	}
-    
-     func giveTestQuestion(sampler: MIDISampler, choice: Int) -> Bool {
-        var earTrainingPlaySet = EAR_TRAINING_TYPE()
-        var isValid = false
-        
-        earTrainingPlaySet = getEarTrainingPlaySet(ETTValue: choice)
-        
-        if !earTrainingPlaySet.isEmpty() {
-            isValid = true
-            
-            playTestQuestion(sampler: sampler, choice: choice, playSet: earTrainingPlaySet)
-        }
-        
-        return isValid
-    }
-    
-    func isValidTestQuestion(choice: Int) -> Bool {
-        var earTrainingPlaySet = EAR_TRAINING_TYPE()
-        var isValid = false
-        
-        earTrainingPlaySet = getEarTrainingPlaySet(ETTValue: choice)
-        
-        if !earTrainingPlaySet.isEmpty() {
-            isValid = true
-        }
-        
-        return isValid
-    }
-    */
-    /*
-    func playTestQuestion(sampler: MIDISampler, choice: Int, playSet: EAR_TRAINING_TYPE) {
-        do {
-            try sampler.playSet(randSetNum: choice, playSet: playSet)
-        } catch MIDIErrors.invalidETTValue {
-            print ("invalid ETT value")
-        } catch {
-            print ("could not play set")
-        }
-    }
-    */
     func getEarTrainingPlaySet(ETTValue: Int) -> EAR_TRAINING_TYPE {
         var earTrainingPlaySet: EAR_TRAINING_TYPE!
         
@@ -132,6 +77,7 @@ class EarTraining: SyllabusLevels {
         var earTrainingPlaySet: EAR_TRAINING_TYPE!
         var randSetNum : Int
         
+        // Keep trying until a nonempty set is assigned.
         repeat {
             randSetNum = RandNum().getRandNum(mod: NUM_EAR_TRAINING_SETS)
             
@@ -140,26 +86,4 @@ class EarTraining: SyllabusLevels {
         
         return earTrainingPlaySet
     }
-/*
-	func isValidSet(choice : Int) -> Bool {
-		var earTrainingPlaySet : EAR_TRAINING_TYPE
-		switch choice {
-			case ETT_VALUES.interval: 
-					earTrainingPlaySet = playSet.INTERVALS
-			case ETT_VALUES.chord: 
-					earTrainingPlaySet = playSet.CHORDS
-			case ETT_VALUES.scale: 
-					earTrainingPlaySet = playSet.SCALES
-			default: 
-					earTrainingPlaySet = EAR_TRAINING_TYPE()
-		}
-
-		if earTrainingPlaySet.isEmpty() {
-			print("invalid value")
-			return false
-		}
-
-		return true
-	}
- */
 }

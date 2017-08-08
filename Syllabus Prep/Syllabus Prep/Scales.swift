@@ -18,15 +18,15 @@ import Foundation
 //  scale going down is the same as natural minor.
 
 struct Scales {
-    let major : (setTupleArray) = (SCALE_NAMES.major, [2, 2, 1, 2, 2, 2, 1, -1, -2, -2, -2, -1, -2, -2])
-    let naturalminor : (setTupleArray) = (SCALE_NAMES.naturalminor, [2, 1, 2, 2, 1, 2, 2, -2, -2, -1, -2, -2, -1, -2])
-    let harmonicminor : (setTupleArray) = (SCALE_NAMES.harmonicminor, [2, 1, 2, 2, 1, 3, 1, -1, -3, -1, -2, -2, -1, -2])
-    let melodicminor : (setTupleArray) = (SCALE_NAMES.melodicminor, [2, 1, 2, 2, 2, 2, 1, -2, -2, -1, -2, -2, -1, -2])
-    let wholetone : (setTupleArray) = (SCALE_NAMES.wholetone, [2, 2, 2, 2, 2, 2, -2, -2, -2, -2, -2, -2])
-    let chromatic : (setTupleArray) = (SCALE_NAMES.chromatic, [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
-    let dorian : (setTupleArray) = (SCALE_NAMES.dorian, [2, 1, 2, 2, 2, 1, 2, -2, -1, -2, -2, -2, -1, -2])
-    let phrygian : (setTupleArray) = (SCALE_NAMES.phrygian, [1, 2, 2, 2, 1, 2, 2, -2, -2, -1, -2, -2, -2, -1])
-    let lydian : (setTupleArray) = (SCALE_NAMES.lydian, [2, 2, 2, 1, 2, 2, 1, -1, -2, -2, -1, -2, -2, -2])
-    let mixolydian : (setTupleArray) = (SCALE_NAMES.mixolydian, [2, 2, 1, 2, 2, 1, 2, -2, -1, -2, -2, -1, -2, -2])
-    let locrian : (setTupleArray) = (SCALE_NAMES.locrian, [1, 2, 2, 1, 2, 2, 2, -2, -2, -2, -1, -2, -2, -1])
+    let major : (setTuple) = (SCALE_NAMES.major, [2, 2, 1, 2, 2, 2, 1, -1, -2, -2, -2, -1, -2, -2])
+    let naturalminor : (setTuple) = (SCALE_NAMES.naturalminor, [2, 1, 2, 2, 1, 2, 2, -2, -2, -1, -2, -2, -1, -2])
+    let harmonicminor : (setTuple) = (SCALE_NAMES.harmonicminor, [2, 1, 2, 2, 1, 3, 1, -1, -3, -1, -2, -2, -1, -2])
+    let melodicminor : (setTuple) = (SCALE_NAMES.melodicminor, [2, 1, 2, 2, 2, 2, 1, -2, -2, -1, -2, -2, -1, -2])
+    let wholetone : (setTuple) = (SCALE_NAMES.wholetone, [2, 2, 2, 2, 2, 2, -2, -2, -2, -2, -2, -2])
+    let chromatic : (setTuple) = (SCALE_NAMES.chromatic, [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
+    let dorian : (setTuple) = (SCALE_NAMES.dorian, [2, 1, 2, 2, 2, 1, 2, -2, -1, -2, -2, -2, -1, -2])
+    let phrygian : (setTuple) = (SCALE_NAMES.phrygian, [1, 2, 2, 2, 1, 2, 2, -2, -2, -1, -2, -2, -2, -1])
+    let lydian : (setTuple) = (SCALE_NAMES.lydian, [2, 2, 2, 1, 2, 2, 1, -1, -2, -2, -1, -2, -2, -2])
+    let mixolydian : (setTuple) = (SCALE_NAMES.mixolydian, [2, 2, 1, 2, 2, 1, 2, -2, -1, -2, -2, -1, -2, -2])
+    let locrian : (setTuple) = (SCALE_NAMES.locrian, [1, 2, 2, 1, 2, 2, 2, -2, -2, -2, -1, -2, -2, -1])
 }

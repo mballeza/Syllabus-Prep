@@ -8,8 +8,7 @@
 
 import Foundation
 
-typealias setTuple = (name: String, value: Int8)
-typealias setTupleArray = (name: String, valueset: [Int8])
+typealias setTuple = (name: String, value: [Int8])
 
 struct EAR_TRAINING_TYPE_VALUES {
     let interval = 0

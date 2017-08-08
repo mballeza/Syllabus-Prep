@@ -6,6 +6,10 @@
 //  Copyright © 2017 Matthew Balleza. All rights reserved.
 //
 
+// This file contains all the Ear Training theory names of intervals, chords, and scales (modes).
+//  There are also fake names for each type. These are structed with a set of Strings and an array
+//  containing all of them for ease of random access.
+
 import Foundation
 
 struct IntervalNames {

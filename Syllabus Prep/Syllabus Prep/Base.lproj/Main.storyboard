@@ -200,7 +200,7 @@
                                 <rect key="frame" x="60" y="214" width="648" height="735"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z7q-7s-ksy">
-                                        <rect key="frame" x="0.0" y="0.0" width="648" height="178.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="648" height="178"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
                                         <state key="normal" title="Ear Training">
@@ -211,7 +211,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FcJ-SX-Rau">
-                                        <rect key="frame" x="0.0" y="278.5" width="648" height="178"/>
+                                        <rect key="frame" x="0.0" y="278" width="648" height="179"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
                                         <state key="normal" title="Rhythm Training*">
@@ -219,7 +219,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qjg-Ij-UX5">
-                                        <rect key="frame" x="0.0" y="556.5" width="648" height="178.5"/>
+                                        <rect key="frame" x="0.0" y="557" width="648" height="178"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
                                         <state key="normal" title="Sight Reading*">
@@ -254,14 +254,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STX-Rc-XFc">
-                                <rect key="frame" x="220" y="894" width="328" height="30"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Submit"/>
-                                <connections>
-                                    <action selector="submitAnswer:" destination="tMq-pb-peb" eventType="touchUpInside" id="1d0-Nj-XIG"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rwY-dS-2lf">
                                 <rect key="frame" x="70" y="99" width="628" height="156"/>
                                 <subviews>
@@ -272,7 +264,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jmM-uX-nIA">
-                                        <rect key="frame" x="253.5" y="62" width="121" height="33"/>
+                                        <rect key="frame" x="254" y="62" width="121" height="33"/>
                                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <segments>
                                             <segment title="First"/>
@@ -293,78 +285,91 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="UR6-5h-A9Q">
-                                <rect key="frame" x="70" y="455" width="628" height="239"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="o2m-H9-plA">
+                                <rect key="frame" x="120" y="355" width="528" height="519"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="RWF-x8-loW">
-                                        <rect key="frame" x="0.0" y="0.0" width="264" height="239"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="UR6-5h-A9Q">
+                                        <rect key="frame" x="0.0" y="0.0" width="528" height="210"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lws-Om-TR0">
-                                                <rect key="frame" x="0.0" y="0.0" width="264" height="99.5"/>
-                                                <color key="backgroundColor" red="0.81509107349999999" green="0.64928305149999999" blue="0.44561457630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="updateAnswerSubmitted:" destination="tMq-pb-peb" eventType="touchUpInside" id="cF3-SO-1GM"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eq6-aZ-rsR">
-                                                <rect key="frame" x="0.0" y="139.5" width="264" height="99.5"/>
-                                                <color key="backgroundColor" red="0.81509107349999999" green="0.64928305149999999" blue="0.44561457630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="updateAnswerSubmitted:" destination="tMq-pb-peb" eventType="touchUpInside" id="2MN-Dk-HaV"/>
-                                                </connections>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="RWF-x8-loW">
+                                                <rect key="frame" x="0.0" y="0.0" width="239" height="210"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lws-Om-TR0">
+                                                        <rect key="frame" x="0.0" y="0.0" width="239" height="80"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="updateAnswerSubmitted:" destination="tMq-pb-peb" eventType="touchUpInside" id="cF3-SO-1GM"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eq6-aZ-rsR">
+                                                        <rect key="frame" x="0.0" y="130" width="239" height="80"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="updateAnswerSubmitted:" destination="tMq-pb-peb" eventType="touchUpInside" id="2MN-Dk-HaV"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="GsQ-Uc-QF3">
+                                                <rect key="frame" x="289" y="0.0" width="239" height="210"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qkI-Ys-QrO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="239" height="80"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="updateAnswerSubmitted:" destination="tMq-pb-peb" eventType="touchUpInside" id="RuB-oC-7f5"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eS4-ml-X6e">
+                                                        <rect key="frame" x="0.0" y="130" width="239" height="80"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="updateAnswerSubmitted:" destination="tMq-pb-peb" eventType="touchUpInside" id="Okj-dj-lbq"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="GsQ-Uc-QF3">
-                                        <rect key="frame" x="364" y="0.0" width="264" height="239"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qkI-Ys-QrO">
-                                                <rect key="frame" x="0.0" y="0.0" width="264" height="99.5"/>
-                                                <color key="backgroundColor" red="0.81509107349999999" green="0.64928305149999999" blue="0.44561457630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="updateAnswerSubmitted:" destination="tMq-pb-peb" eventType="touchUpInside" id="RuB-oC-7f5"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eS4-ml-X6e">
-                                                <rect key="frame" x="0.0" y="139.5" width="264" height="99.5"/>
-                                                <color key="backgroundColor" red="0.81509107349999999" green="0.64928305149999999" blue="0.44561457630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="updateAnswerSubmitted:" destination="tMq-pb-peb" eventType="touchUpInside" id="Okj-dj-lbq"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STX-Rc-XFc">
+                                        <rect key="frame" x="100" y="310" width="328" height="209"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Submit"/>
+                                        <connections>
+                                            <action selector="submitAnswer:" destination="tMq-pb-peb" eventType="touchUpInside" id="1d0-Nj-XIG"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="STX-Rc-XFc" firstAttribute="top" secondItem="UR6-5h-A9Q" secondAttribute="bottom" constant="100" id="41N-3x-GvQ"/>
+                                    <constraint firstItem="STX-Rc-XFc" firstAttribute="leading" secondItem="o2m-H9-plA" secondAttribute="leading" constant="100" id="Tlp-OC-gzN"/>
+                                    <constraint firstItem="UR6-5h-A9Q" firstAttribute="leading" secondItem="o2m-H9-plA" secondAttribute="leading" id="aRw-wb-len"/>
+                                    <constraint firstAttribute="trailing" secondItem="UR6-5h-A9Q" secondAttribute="trailing" id="b4U-Qn-NFN"/>
+                                    <constraint firstAttribute="trailing" secondItem="STX-Rc-XFc" secondAttribute="trailing" constant="100" id="wjF-ov-rea"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.99762505290000003" green="0.94694143529999997" blue="0.83522003889999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="rwY-dS-2lf" firstAttribute="leading" secondItem="G10-Ma-fEO" secondAttribute="leadingMargin" constant="50" id="0rn-gz-K5x"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rwY-dS-2lf" secondAttribute="trailing" constant="50" id="6Uf-0z-G8Y"/>
-                            <constraint firstItem="STX-Rc-XFc" firstAttribute="leading" secondItem="G10-Ma-fEO" secondAttribute="leadingMargin" constant="200" id="Glg-ft-se8"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="UR6-5h-A9Q" secondAttribute="trailing" constant="50" id="K5e-FJ-fmI"/>
-                            <constraint firstItem="UR6-5h-A9Q" firstAttribute="top" secondItem="rwY-dS-2lf" secondAttribute="bottom" constant="200" id="LlN-qR-uhN"/>
+                            <constraint firstItem="o2m-H9-plA" firstAttribute="top" secondItem="rwY-dS-2lf" secondAttribute="bottom" constant="100" id="G8K-hd-Kqd"/>
+                            <constraint firstItem="h2h-2y-Bx0" firstAttribute="top" secondItem="o2m-H9-plA" secondAttribute="bottom" constant="150" id="Gwn-Hs-iOv"/>
+                            <constraint firstItem="o2m-H9-plA" firstAttribute="leading" secondItem="G10-Ma-fEO" secondAttribute="leadingMargin" constant="100" id="M3P-CG-sxD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="o2m-H9-plA" secondAttribute="trailing" constant="100" id="NBe-nC-dz0"/>
                             <constraint firstItem="rwY-dS-2lf" firstAttribute="top" secondItem="4CH-f8-8qg" secondAttribute="bottom" constant="35" id="S8y-fW-zJW"/>
-                            <constraint firstItem="STX-Rc-XFc" firstAttribute="top" secondItem="UR6-5h-A9Q" secondAttribute="bottom" constant="200" id="dNm-nj-KbI"/>
-                            <constraint firstItem="h2h-2y-Bx0" firstAttribute="top" secondItem="STX-Rc-XFc" secondAttribute="bottom" constant="100" id="h04-Bh-RZ2"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="STX-Rc-XFc" secondAttribute="trailing" constant="200" id="iI2-wa-L4V"/>
-                            <constraint firstItem="UR6-5h-A9Q" firstAttribute="leading" secondItem="G10-Ma-fEO" secondAttribute="leadingMargin" constant="50" id="px6-BD-dix"/>
                         </constraints>
                     </view>
                     <connections>

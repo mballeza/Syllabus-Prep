@@ -14,30 +14,13 @@ import Foundation
 //  a random scale tuple.
 
 class ET_Scales : EAR_TRAINING_TYPE {
-    var scales : [setTupleArray]!
-    
     override init() {
         super.init()
-        scales = []
     }
     
-    init(set:  [(String, [Int8])]) {
-        super.init(name: ETT_NAMES.scale)
-        scales = set
-    }
-    
-	// Returns true if class was not initialized with a nonempty scale set.
-	// Returns false otherwise.
-    override func isEmpty() -> Bool {
-        return scales!.count == 0
-    }
-    
-	// Returns a random array from a Scale tuple.
-    override func getSet() -> [Int8] {
-        return self.scales![RandNum().getRandNum(mod: self.scales!.count)].valueset
-    }
-    
-    override func getSet() -> setTupleArray {
-        return self.scales![RandNum().getRandNum(mod: self.scales!.count)]
+    init(set:  [setTuple]) {
+        super.init()
+        self.name = ETT_NAMES.scale
+        self.noteSets = set
     }
 }

@@ -6,6 +6,10 @@
 //  Copyright © 2017 Matthew Balleza. All rights reserved.
 //
 
+enum ETT_Errors : Error {
+    case emptyNoteSet
+}
+
 let setIntervals = Intervals()
 let setChords = Chords()
 let setScales = Scales()
@@ -81,32 +85,23 @@ struct EAR_TRAINING_LEVEL_SETS {
 //   a test question.
 class EAR_TRAINING_TYPE {
 	var name : String
-
+    var noteSets : [setTuple]
+    
 	init() {
 		self.name = ""
-	}
-
-	init(name: String) {
-		self.name = name
+        self.noteSets = []
 	}
 
 	// Returns true if mode is empty.
 	func isEmpty() -> Bool {
-		return name == ""
-	}
-
-    func getInterval() -> Int8 {
-        return 0
-    }
-    func getSet() -> [Int8] {
-        return []
+		return self.noteSets.count == 0
     }
     
-    func getInterval() -> setTuple {
-        return ("", 0)
-    }
-    func getSet() -> setTupleArray {
-        return ("", [])
+    func getRandNoteSet() throws -> setTuple {
+        if self.isEmpty() {
+            throw ETT_Errors.emptyNoteSet
+        }
+        return self.noteSets[RandNum().getRandNum(mod: self.noteSets.count)]
     }
 }
 
@@ -122,7 +117,7 @@ class EAR_TRAINING_SETS {
         self.scales = ET_Scales()
 	}
     
-    init(intervalset : [(String, Int8)], chordset : [(String, [Int8])], scaleset : [(String, [Int8])]) {
+    init(intervalset : [setTuple], chordset : [setTuple], scaleset : [setTuple]) {
         self.intervals = ET_Intervals(set: intervalset)
         self.chords = ET_Chords(set: chordset)
         self.scales = ET_Scales(set: scaleset)

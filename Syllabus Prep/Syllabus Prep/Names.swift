@@ -4,7 +4,9 @@
 //
 //  Created by Matthew Balleza on 8/3/17.
 //  Copyright © 2017 Matthew Balleza. All rights reserved.
-//
+//  This software is released under the "Apache 2.0 License".
+//  Please see the file LICENSE in the source distribution of
+//  this software for license terms.
 
 // This file contains all the Ear Training theory names of intervals, chords, and scales (modes).
 //  There are also fake names for each type. These are structed with a set of Strings and an array

@@ -10,6 +10,14 @@
 //
 //  Modified by Matthew Balleza on 7/16/17.
 //  Copyright © 2017 Matthew Balleza. All rights reserved.
+//  This software is released under the "Apache 2.0 License".
+//  Please see the file LICENSE in the source distribution of
+//  this software for license terms.
+//
+//  This software was modified from the above person(s) under
+//  the permissions of the "MIT License".
+//  Please see the file LICENSE-DeLisa in the source distribution
+//  of this software (Syllabus Prep) for license terms.
 
 import Foundation
 import AVKit

@@ -4,7 +4,9 @@
 //
 //  Created by Matthew Balleza on 7/9/17.
 //  Copyright © 2017 Matthew Balleza. All rights reserved.
-//
+//  This software is released under the "Apache 2.0 License".
+//  Please see the file LICENSE in the source distribution of
+//  this software for license terms.
 
 import UIKit
 

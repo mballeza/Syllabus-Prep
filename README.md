@@ -12,7 +12,9 @@ Syllabus Prep is way for students of the Oregon Music Teachers Association (OMTA
 
 ## License
 
-This project is licensed under the Apache 2.0 License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details.
+
+This project includes third part open source software components: MIDISampler.swift. This file has been modified under permission of the MIT License. Please see [Third-Party-License/LICENSE-DeLisa](Third-Party-License/LICENSE-DeLisa)
 
 ### Demo
 

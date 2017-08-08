@@ -95,31 +95,38 @@ class MIDISampler {
         self.sampler.sendProgramChange(gmpatch, bankMSB: melodicBank, bankLSB: defaultBankLSB, onChannel: channel)
     }
     
+    // Plays two MIDI notes. First it plays a random note, then plays a note with the distance
+    //  of 'interval' half-steps above the first note. Then it plays both at the same time.
     func playInterval(interval: [Int8]) {
-        loadPatch(gmBrightAcousticPiano)
+        loadPatch(gmBrightAcousticPiano)    // Necessary to load each time??
         
         let startKey = noteset.all[RandNum().getRandNum(mod: noteset.all.count)]
         let firstKey = startKey[RandNum().getRandNum(mod: noteset.notesize)]
         let secondKey = firstKey + interval[0]
         
-        let playSet : [Int8] = [firstKey, secondKey]
+        let playSet : [Int8] = [firstKey, secondKey]    // Contains literal MIDI note values
         
         playNoteSetTogether(set: playSet)
     }
     
+    // Plays three MIDI notes. Similar to playInterval. Plays three notes separately and then
+    //  together. The first note is random, second note is 'chord[0]' half-steps above the root,
+    //  and the third note is 'chord[1]' half-steps above the root.
     func playChord(chord: [Int8]) {
-        loadPatch(gmBrightAcousticPiano)
+        loadPatch(gmBrightAcousticPiano)    // Necessary to load each time??
         
         let startKey = noteset.all[RandNum().getRandNum(mod: noteset.all.count)]
         let firstKey = startKey[RandNum().getRandNum(mod: noteset.notesize)]
         let secondKey = firstKey + chord[0]
         let thirdKey = firstKey + chord[1]
         
-        let playSet : [Int8] = [firstKey, secondKey, thirdKey]
+        let playSet : [Int8] = [firstKey, secondKey, thirdKey]  // Contains literal MIDI note values
         
         playNoteSetTogether(set: playSet)
     }
     
+    // Plays MIDI notes separate, then together. The set array contains literal MIDI note values
+    //  rather than relative half-step differences.
     func playNoteSetTogether(set: [Int8]) {
         // Play notes separate
         for i in 0...set.count-1 {
@@ -145,9 +152,14 @@ class MIDISampler {
         }
     }
     
+    // Plays a scale/mode. Plays all notes separately.
     func playScale(scale: [Int8]) {
-        loadPatch(gmBrightAcousticPiano)
+        loadPatch(gmBrightAcousticPiano)    // Necessary to load each time??
 
+        // Will contain MIDI literal note values. The count is 1 higher than the given scale array.
+        //  This is because the scale array contains half-step differences between each previous note.
+        //  The starting note will be index 0, and the rest will be computed and entered into the 
+        //  rest of the array.
         var playSet : [Int8] = Array(repeating: 0, count: scale.count + 1)
         
         let startKey = noteset.all[RandNum().getRandNum(mod: noteset.all.count)]
@@ -167,6 +179,9 @@ class MIDISampler {
 
     }
 
+    // Non-optimal way of creating space between notes. There should be better MIDI tools that can
+    //  accomplish this, but none that I could find that could also load a MIDI patch (to play notes
+    //  with a piano sound).
     func pauseNoteDuration(seconds: Double) {
         usleep(UInt32(seconds * ticksPerSecond))
     }

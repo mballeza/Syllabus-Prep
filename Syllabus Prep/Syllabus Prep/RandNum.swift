@@ -10,8 +10,8 @@
 
 import Foundation
 
-// Class for random number generation. This may be removed or expanded
-//  for random answer generation.
+// Class for random number generation. This has been expanded as of 8/3/17
+//  for random answer generation. Seen RandAnswer.swift.
 
 class RandNum {
 	// Sets seed based on current time.

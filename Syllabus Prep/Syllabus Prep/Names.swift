@@ -14,6 +14,9 @@
 
 import Foundation
 
+//*********** DO NOT MODIFY NAMES BELOW THIS LINE ************
+// These names are based on the OMTA requirements of Piano Syllabus Levels I-X 2012 Version B book.
+//  Please do no modify unless a newer version of the book is used.
 struct IntervalNames {
     let minorsecond = "Minor 2nd"
     let majorsecond = "Major 2nd"
@@ -67,7 +70,9 @@ struct ScaleNames {
         all = [major, naturalminor, harmonicminor, melodicminor, chromatic, wholetone, dorian, phrygian, lydian, mixolydian, locrian]
     }
 }
+//*********** DO NOT MODIFY NAMES ABOVE THIS LINE ************
 
+// Fake names for intervals. Can be modified to add or remove fake names for intervals.
 struct IntervalFakeNames {
     let semiperfectfourth = "Semi-Perfect 4th"
     let semiperfectfifth = "Semi-Perfect 5th"
@@ -82,6 +87,7 @@ struct IntervalFakeNames {
     }
 }
 
+// Fake names for chords. Can be modified to add or remove fake names for chords.
 struct ChordFakeNames {
     let perfecttriad = "Perfect Triad"
     let harmonictriad = "Harmonic Triad"
@@ -94,6 +100,7 @@ struct ChordFakeNames {
     }
 }
 
+// Fake names for scales. Can be modified to add or remove fake names for scales/modes.
 struct ScaleFakeNames {
     let magician = "Magician"
     let lorian = "Lorian"

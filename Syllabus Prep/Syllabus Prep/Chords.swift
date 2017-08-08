@@ -16,7 +16,12 @@ import Foundation
 //  test question. The array contains 2 Int8 values: the value of the 
 //  interval between root and third, and the value of the interval between
 //  root and fifth.
-
+//
+// Please do not modify, add, or remove variables unless the following reasons occur:
+//  -Half-step values are incorrect.
+//  -OMTA requirements change.
+//  -The entire Western Music Theory world suddenly encounters a time vortex
+//   and the names and half-step values are changed.
 struct Chords {
     let minortriad : (setTuple) = (CHORD_NAMES.minortriad, [3, 7])
     let majortriad : (setTuple) = (CHORD_NAMES.majortriad, [4, 7])

@@ -13,15 +13,20 @@ class EarTrainingTests: XCTestCase {
     var intervals:ET_Intervals!
     var chords:ET_Chords!
     var scales:ET_Scales!
+    
     let intervalname = ETT_NAMES.interval
     let chordname = ETT_NAMES.chord
     let scalename = ETT_NAMES.scale
+    
     let major2nd = setIntervals.majorsecond
     let minor2nd = setIntervals.minorsecond
+    
     let majortriad = setChords.majortriad
     let minortriad = setChords.minortriad
+    
     let majorscale = setScales.major
     let dorian = setScales.dorian
+    
     var intervalset:[setTuple]!
     var chordset:[setTuple]!
     var scaleset:[setTuple]!
@@ -50,7 +55,11 @@ class EarTrainingTests: XCTestCase {
     
     // Test for Ear Training Types object creation. Tests for empty and nonempty objects.
     func testEarTrainingNewObjects() {
-
+        self.testNewEmtpyObjects()
+        self.testNewNonEmptyObjects()
+    }
+    
+    func testNewEmtpyObjects() {
         intervals = ET_Intervals()
         chords = ET_Chords()
         scales = ET_Scales()
@@ -59,7 +68,17 @@ class EarTrainingTests: XCTestCase {
         XCTAssert(intervals.isEmpty(), "Intervals returned nonempty when empty")
         XCTAssert(chords.isEmpty(), "Chords returned nonempty when empty")
         XCTAssert(scales.isEmpty(), "Scales returned nonempty when empty")
-
+        
+        XCTAssertThrowsError(try intervals.getRandNoteSet())
+        XCTAssertThrowsError(try chords.getRandNoteSet())
+        XCTAssertThrowsError(try scales.getRandNoteSet())
+    }
+    
+    func testNewNonEmptyObjects() {
+        var randInterval:setTuple = ("", [])
+        var randChord:setTuple = ("", [])
+        var randScale:setTuple = ("", [])
+        
         intervals = ET_Intervals(set: intervalset)
         chords = ET_Chords(set: chordset)
         scales = ET_Scales(set: scaleset)
@@ -74,14 +93,14 @@ class EarTrainingTests: XCTestCase {
         XCTAssert(chords.name == chordname, "Chord name does not match init")
         XCTAssert(scales.name == scalename, "Interval name does not match init")
         
-        let randInterval:setTuple = intervals.getInterval()
-        let randChord:setTuple = chords.getSet()
-        let randScale:setTuple = scales.getSet()
+        XCTAssertNoThrow(try randInterval = intervals.getRandNoteSet(), "Returns empty when nonempty")
+        XCTAssertNoThrow(try randChord = chords.getRandNoteSet(), "Returns empty when nonempty")
+        XCTAssertNoThrow(try randScale = scales.getRandNoteSet(), "Returns empty when nonempty")
         
         // Assert getInterval() and getSet() is contained within the initial set
         XCTAssert(intervalset[0].value == randInterval.value || intervalset[1].value == randInterval.value, "Interval set does not match init")
-        XCTAssert(chordset[0].value == randChord.valueset || chordset[1].valueset == randChord.valueset, "Chord set does not match init")
-        XCTAssert(scaleset[0].value == randScale.valueset || scaleset[1].valueset == randScale.valueset, "Scale set does not match init")
+        XCTAssert(chordset[0].value == randChord.value || chordset[1].value == randChord.value, "Chord set does not match init")
+        XCTAssert(scaleset[0].value == randScale.value || scaleset[1].value == randScale.value, "Scale set does not match init")
     }
     
     /*  playSet() was removed
@@ -122,27 +141,27 @@ class EarTrainingTests: XCTestCase {
         }
         
         // Syllabus levels 1 to 10
-        validChoice[0] = [1]    // Chords only
-        validChoice[1] = [0,1]  // Intervals and chords
-        validChoice[2] = [0,2]
-        validChoice[3] = [0,2]
-        validChoice[4] = [0,2]
-        validChoice[5] = [0,2]
-        validChoice[6] = [1]    // Chords only
-        validChoice[7] = [0]    // Intervals only
-        validChoice[8] = [0]
-        validChoice[9] = [0]
+        validChoice[0] = [ETT_VALUES.chord]                      // Chords only
+        validChoice[1] = [ETT_VALUES.interval, ETT_VALUES.chord] // Intervals and chords
+        validChoice[2] = [ETT_VALUES.interval, ETT_VALUES.scale] // Intervals and scales
+        validChoice[3] = [ETT_VALUES.interval, ETT_VALUES.scale]
+        validChoice[4] = [ETT_VALUES.interval, ETT_VALUES.scale]
+        validChoice[5] = [ETT_VALUES.interval, ETT_VALUES.scale]
+        validChoice[6] = [ETT_VALUES.chord]                      // Chords only
+        validChoice[7] = [ETT_VALUES.interval]                   // Intervals only
+        validChoice[8] = [ETT_VALUES.interval]
+        validChoice[9] = [ETT_VALUES.interval]
         
-        invalidChoice[0] = [-1, 0, 2, 100]
-        invalidChoice[1] = [-1, 2, 100]
-        invalidChoice[2] = [-1, 1, 100]
-        invalidChoice[3] = [-1, 1, 100]
-        invalidChoice[4] = [-1, 1, 100]
-        invalidChoice[5] = [-1, 1, 100]
-        invalidChoice[6] = [-1, 0, 2, 100]
-        invalidChoice[7] = [-1, 1, 2, 100]
-        invalidChoice[8] = [-1, 1, 2, 100]
-        invalidChoice[9] = [-1, 1, 2, 100]
+        invalidChoice[0] = [-1, ETT_VALUES.interval, ETT_VALUES.scale, 100]
+        invalidChoice[1] = [-1, ETT_VALUES.scale, 100]
+        invalidChoice[2] = [-1, ETT_VALUES.chord, 100]
+        invalidChoice[3] = [-1, ETT_VALUES.chord, 100]
+        invalidChoice[4] = [-1, ETT_VALUES.chord, 100]
+        invalidChoice[5] = [-1, ETT_VALUES.chord, 100]
+        invalidChoice[6] = [-1, ETT_VALUES.interval, ETT_VALUES.scale, 100]
+        invalidChoice[7] = [-1, ETT_VALUES.chord, ETT_VALUES.scale, 100]
+        invalidChoice[8] = [-1, ETT_VALUES.chord, ETT_VALUES.scale, 100]
+        invalidChoice[9] = [-1, ETT_VALUES.chord, ETT_VALUES.scale, 100]
         
         for i in 0...9 {
             for choice in validChoice[i] {

@@ -18,7 +18,13 @@ import Foundation
 //  second half contains negative values (going down the scale). All
 //  scales are the same up and down except for melodic minor, where the
 //  scale going down is the same as natural minor.
-
+//
+// Please do not modify, add, or remove variables unless the following reasons occur:
+//  -Half-step values are incorrect.
+//  -OMTA requirements change.
+//  -The entire Western Music Theory world suddenly encounters a time vortex
+//   and the names and half-step values are changed.
+// Note that major is equivalent to ionian, and natural minor is equivalent to aeolian.
 struct Scales {
     let major : (setTuple) = (SCALE_NAMES.major, [2, 2, 1, 2, 2, 2, 1, -1, -2, -2, -2, -1, -2, -2])
     let naturalminor : (setTuple) = (SCALE_NAMES.naturalminor, [2, 1, 2, 2, 1, 2, 2, -2, -2, -1, -2, -2, -1, -2])

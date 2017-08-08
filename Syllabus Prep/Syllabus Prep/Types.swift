@@ -10,8 +10,14 @@
 
 import Foundation
 
+// This tuple is intended for Ear Training purposes. This tuple will contain
+//  a name and a set of half-step values. Int8 is used because MIDI tools 
+//  require an Int8 value.
 typealias setTuple = (name: String, value: [Int8])
 
+// This is used mainly for random number access and switch cases. If a user
+//  wishes to study more than one Ear Training type, RandNum is used to pick
+//  an Ear Training type.
 struct EAR_TRAINING_TYPE_VALUES {
     let interval = 0
     let chord = 1

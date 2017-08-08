@@ -15,7 +15,12 @@ import Foundation
 //  Interval type is, and is for answer verification when a user is given a
 //  test question. The Int8 value represents the number of half steps
 //  between the first note and the second note.
-
+//
+// Please do not modify, add, or remove variables unless the following reasons occur:
+//  -Half-step values are incorrect.
+//  -OMTA requirements change.
+//  -The entire Western Music Theory world suddenly encounters a time vortex
+//   and the names and half-step values are changed.
 struct Intervals {
     let minorsecond: (setTuple) = (INTERVAL_NAMES.minorsecond, [1])
     let majorsecond: (setTuple) = (INTERVAL_NAMES.majorsecond, [2])

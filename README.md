@@ -20,59 +20,59 @@ See the "demo" branch for a Swift command-line simulation of concepts intended f
 
 [mballeza/Syllabus-Prep/tree/demo](https://github.com/mballeza/Syllabus-Prep/tree/demo)
 
-### Update 7/18/17
+### Update 8/7/17
 
 #### Current State
 
-- Simple one-scene app for iOS 9.3 with one button for each level (10 total).
+##### UI
 
-  - Ear training only: each button plays a random interval, chord, or scale.
+- 3 scenes to navigate:
 
-  - Each level has its own set of intervals, chords, and/or scales based on the OMTA requirements.
+  - Main menu. Here the user selects which Syllabus level to study for.
+  
+  - Level menu. Here the user selects to study Ear Training, Rhythm Training, or Sight Reading. Currently, only the Ear Training session has been implemented.
+  
+  - Ear Training. Here the user selects which type to study for: intervals, chords, or scales (modes). The user can study one type or multiple (randomly chosen and generated). There are four buttons to choose from. One has the correct answer, two have a random incorrect answer of the same type, and one is a fake term.
+  
+##### Implementation
+
+- Music Theory structures
+
+  - Intervals, chords, and scales all now use a tuple "setTuple": (String, [Int8]).
+  
+  - Names of all intervals, chords, and scales can be accessed by the struct definition individually or by an array (for random retrieval).
+  
+- MIDI sampler
+
+  - Play interval, chord, or scale have separate functions.
+   
+  - Intervals and chords play notes separately then together.
+    
+  - Scales play notes individually.
 
 #### Limitations
 
 - MIDI note generation relies on a sleep call between notes. This is not ideal, and needs a better alternative in future updates.
 
-- Cannot yet separate the random generation between intervals, chords, and scales; i.e. a user wanted to study some level *n* and wanted to only play intervals and not chords or scales.
+- UI is very basic and has constraint issues.
+
+- Error prevention is limited.
 
 #### To-do
 
-- Create unit tests.
-
-- Allow options to user to study single sets (intervals, chords, or scales individually).
+- Update unit tests.
 
 - Improve UI.
 
-  - Level selection moves to another scene.
+  - Fix constraint issues.
   
-  - Info to indicate current study session: level, study set, etc.
+- Rhythm Training
+
+  - The plan is to be able to display randomly generated(?) rhythms with notes on a staff.
   
-  - Navigation.
+- Sight Reading
 
-### Week 3 Update - 7/15/17
-
-#### Current State
-
-- Simple app for iOS 9.3 with a couple buttons.
-
-#### Limitations
-
-- App crashes after mp3 file is played for top button.
-
-- App opens a quicktime player for the second button.
-
-  - The intention for the play button is to play the sound on the same screen.
-  
-  - This button was created for educational exploration of different tools in XCode.
-
-#### To-do
-
-- Learn more about how iOS app creation works.
-
-- Integrate the demo branch swift files into the xcode project on master branch.
-
-#### See demo branch for more information on the Week 3 Update
+  - The plan is to be able to display composed pieces to students to read.
 
 ## Useful Links
 

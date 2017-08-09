@@ -82,9 +82,11 @@ See the "demo" branch for a Swift command-line simulation of concepts intended f
 
 ## Useful Links
 
-- (link to OMTA syllabus test requirements)
+- [AKMIDI](http://audiokit.io/docs/Classes/AKMIDI.html)
 
-- (links to MIDI tools)
+- [AudioKit](https://github.com/AudioKit/AudioKit)
+
+- [Gene De Lisa's repositories on MIDI in the Swift language](https://github.com/genedelisa?utf8=%E2%9C%93&tab=repositories&q=MIDI&type=&language=swift)
 
 #### The following is the rest of the template from https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
 

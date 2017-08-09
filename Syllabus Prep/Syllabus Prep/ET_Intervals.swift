@@ -10,10 +10,8 @@
 
 import Foundation
 
-// Ear Training Intervals. This class contains a set of Intervals. Currently
-//  there are two functions: isEmpty() and getInterval(). The former returns
-//  true if the Interval set is empty, and the latter returns an Int from
-//  a random Interval tuple.
+// Ear Training Intervals. This class contains a set of Intervals. This class
+//  simply intializes the note set and the name as "Interval".
 
 class ET_Intervals : EAR_TRAINING_TYPE {
     override init() {

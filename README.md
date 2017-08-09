@@ -16,6 +16,10 @@ This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENS
 
 This project includes third part open source software components: MIDISampler.swift. This file has been modified under permission of the MIT License. Please see [Third-Party-License/LICENSE-DeLisa](Third-Party-License/LICENSE-DeLisa)
 
+## Definition of Terms
+
+This project uses certain terms in its documentation and naming style. See the file [Terms.md](Terms.md) for more details.
+
 ### Demo
 
 See the "demo" branch for a Swift command-line simulation of concepts intended for the app release.

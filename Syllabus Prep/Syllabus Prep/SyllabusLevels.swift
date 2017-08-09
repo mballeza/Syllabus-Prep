@@ -58,6 +58,9 @@ class EarTraining: SyllabusLevels {
 		RandNum().setRandSeed()
 	}
 
+    // Retrieves either an ET_Intervals, ET_Chords, or ET_Scales subclass based on the Int
+    //  value passed in. This value can be between 0 and 2 to be valid. Otherwise this function
+    //  returns an empty type.
     func getEarTrainingPlaySet(ETTValue: Int) -> EAR_TRAINING_TYPE {
         var earTrainingPlaySet: EAR_TRAINING_TYPE!
         
@@ -75,6 +78,8 @@ class EarTraining: SyllabusLevels {
         return earTrainingPlaySet
     }
     
+    // Retrieves a random ET subclass. This function retrieves a random number between 0 and 2.
+    //  It will continue to retrieve a random number until the object returned is nonempty.
     func getRandomEarTrainingPlaySet() -> EAR_TRAINING_TYPE {
         var earTrainingPlaySet: EAR_TRAINING_TYPE!
         var randSetNum : Int

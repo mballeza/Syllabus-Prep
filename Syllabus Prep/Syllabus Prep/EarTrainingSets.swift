@@ -82,8 +82,8 @@ struct EAR_TRAINING_LEVEL_SETS {
 }
 //******** DO NOT MODIFY SET CONTENTS ABOVE THIS LINE *********
 
-// This stores String arrays of the modes and types in a particular ear training type (interval,
-//   chord, or scale). The indexes of the two arrays are accessed at random by EarTraining for
+// This stores a note set tuple array and its associated name in a particular ear training type 
+//   (interval, chord, or scale). The note set is accessed at random by EarTraining for
 //   a test question.
 class EAR_TRAINING_TYPE {
 	var name : String
@@ -94,11 +94,12 @@ class EAR_TRAINING_TYPE {
         self.noteSets = []
 	}
 
-	// Returns true if mode is empty.
+	// Returns true if type is empty.
 	func isEmpty() -> Bool {
 		return self.noteSets.count == 0
     }
     
+    // Retrieves a random index of noteSets. Throws error if empty.
     func getRandNoteSet() throws -> setTuple {
         if self.isEmpty() {
             throw ETT_Errors.emptyNoteSet

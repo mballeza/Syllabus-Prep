@@ -10,10 +10,8 @@
 
 import Foundation
 
-// Ear Training Chords. This class contains a set of Chords. Currently
-//  there are two functions: isEmpty() and getSet(). The former returns
-//  true if the Chord set is empty, and the latter returns an array from
-//  a random chord tuple.
+// Ear Training Chords. This class contains a set of Chords. This class
+//  simply intializes the note set and the name as "Chord".
 
 class ET_Chords : EAR_TRAINING_TYPE {
     override init() {

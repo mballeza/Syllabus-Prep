@@ -10,10 +10,8 @@
 
 import Foundation
 
-// Ear Training Scales. This class contains a set of Scales. Currently
-//  there are two functions: isEmpty() and getSet(). The former returns
-//  true if the Scales set is empty, and the latter returns an array from
-//  a random scale tuple.
+// Ear Training Scales. This class contains a set of Scales. This class
+//  simply intializes the note set and the name as "Scale".
 
 class ET_Scales : EAR_TRAINING_TYPE {
     override init() {

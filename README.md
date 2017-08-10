@@ -24,13 +24,13 @@ This project includes third part open source software components: MIDISampler.sw
 
 This project uses certain terms in its documentation and naming style. See the file [Terms.md](Terms.md) for more details.
 
-### Prerequisites
+## Prerequisites
 
 **Xcode 8.0** or higher.
 
 **Swift 3** or higher.
 
-### Demo
+## Demo
 
 See the "demo" branch for a Swift command-line simulation of concepts intended for the app release.
 

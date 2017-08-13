@@ -26,15 +26,49 @@ This project uses certain terms in its documentation and naming style. See the f
 
 ## Prerequisites
 
-**Xcode 8.0** or higher.
+**Xcode 8.0** or higher. This requires macOS. If you do not have macOS-compatible hardware, you can use a VM, such as [VirtualBox](https://www.virtualbox.org/wiki/Downloads). There are several online tutorials and resources to assist you.
 
 **Swift 3** or higher.
 
-## Demo
+## Build
 
-See the "demo" branch for a Swift command-line simulation of concepts intended for the app release.
+- Start Xcode, open Syllabus Prep.
 
-[mballeza/Syllabus-Prep/tree/demo](https://github.com/mballeza/Syllabus-Prep/tree/demo)
+- Select and set the active scheme. Currently the UI is optimized for iPad devices. 
+
+![image of set active scheme](Screenshots/Set_Active_Scheme.png)
+
+![image of select active scheme](Screenshots/Select_Active_Scheme.png)
+
+- Build and run
+
+![image of build and run](Screenshots/Build_and_Run.png)
+
+**Here are some useful keyboard shortcuts**
+
+Clean
+
+```
+shift+cmd+k
+```
+
+Build
+
+```
+cmd+b
+```
+
+Run
+
+```
+cmd+r
+```
+
+Test
+
+```
+cmd+u
+```
 
 ## Useful Links
 

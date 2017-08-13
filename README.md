@@ -30,17 +30,45 @@ This project uses certain terms in its documentation and naming style. See the f
 
 **Swift 3** or higher.
 
+**iOS 9.3** or higher for use on devices.
+
+**An AppleID** to test and use on iOS devices.
+
 ## Build
 
-- Start Xcode, open Syllabus Prep.
+### Simulator
 
-- Select and set the active scheme. Currently the UI is optimized for iPad devices. 
+1. Start Xcode, open Syllabus Prep.
+
+2. Select and set the active scheme. Currently the UI is optimized for iPad devices. 
 
 ![image of set active scheme](Screenshots/Set_Active_Scheme.png)
 
 ![image of select active scheme](Screenshots/Select_Active_Scheme.png)
 
-- Build and run
+3. Build and run
+
+![image of build and run](Screenshots/Build_and_Run.png)
+
+### iOS Device
+
+1. Plug in your iOS device to your computer. Note the UI is optimized for iPad devices.
+
+2. Start Xcode, open Syllabus Prep.
+
+3. Select and set the active scheme to your device.
+
+![image of select device scheme](Screenshots/Select_Device_Scheme)
+
+4. Click the top-most level file in the project.
+
+![image of select .xcodeproj file](Screenshots/Select_.xcodeproj_File)
+
+5. Under the "Signing" section, change the "Team" to your AppleID. Click on "Add an Account" to enter your ID and password.
+
+![image of add account](Screenshots/Add_Account)
+
+6. Build and run
 
 ![image of build and run](Screenshots/Build_and_Run.png)
 

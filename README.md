@@ -4,7 +4,7 @@ Syllabus Prep is way for students of the Oregon Music Teachers Association (OMTA
 
 The current state of this project is a work in progress. The list of stable builds are as follows:
 
-- [**Ear Training - Stable**](https://github.com/mballeza/Syllabus-Prep/releases/tag/v0.1.1)
+- [**Ear Training - Stable**](https://github.com/mballeza/Syllabus-Prep/releases/tag/v0.1.2)
 
 ## Author
 

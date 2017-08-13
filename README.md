@@ -58,15 +58,15 @@ This project uses certain terms in its documentation and naming style. See the f
 
 3. Select and set the active scheme to your device.
 
-![image of select device scheme](Screenshots/Select_Device_Scheme)
+![image of select device scheme](Screenshots/Select_Device_Scheme.png)
 
 4. Click the top-most level file in the project.
 
-![image of select .xcodeproj file](Screenshots/Select_.xcodeproj_File)
+![image of select .xcodeproj file](Screenshots/Select_.xcodeproj_File.png)
 
 5. Under the "Signing" section, change the "Team" to your AppleID. Click on "Add an Account" to enter your ID and password.
 
-![image of add account](Screenshots/Add_Account)
+![image of add account](Screenshots/Add_Account.png)
 
 6. Build and run
 
